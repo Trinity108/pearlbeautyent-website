@@ -1,1 +1,286 @@
-h1 { font-family: Arial, Helvetica, sans-serif; }
+/* Pearl Beauty Custom Styles */
+
+/* Fonts and base styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+/* Custom color scheme for Caribbean theme */
+:root {
+  --teal-50: #F0FDFA;
+  --teal-100: #CCFBF1;
+  --teal-600: #0D9488;
+  --teal-700: #0F766E;
+  --teal-800: #115E59;
+  --coral-400: #FF7F7F;
+  --coral-500: #FF6B6B;
+  --coral-600: #FF5252;
+}
+
+/* Hero section enhancements */
+.hero {
+  background: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-800) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 Q25,25 50,50 T100,50 V100 H0 Z" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23wave)"/></svg>') repeat;
+  opacity: 0.1;
+  animation: wave-animation 20s linear infinite;
+}
+
+@keyframes wave-animation {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-100px) translateY(-100px); }
+}
+
+/* Product cards */
+.product-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-color: var(--teal-300);
+}
+
+/* Bundle cards special styling */
+.bundle-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.bundle-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--teal-600), var(--coral-500));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bundle-card:hover::after {
+  opacity: 1;
+}
+
+/* Quiz modal styling */
+.quiz-option {
+  transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+  background-color: #f0fdfa;
+  border-color: var(--teal-600);
+  transform: translateX(4px);
+}
+
+.quiz-option.selected {
+  background-color: var(--teal-50);
+  border-color: var(--teal-600);
+}
+
+/* Progress bar */
+.progress-bar {
+  background: linear-gradient(90deg, var(--teal-600) 0%, var(--coral-500) 100%);
+  transition: width 0.3s ease;
+}
+
+/* Star ratings */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Button enhancements */
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-700) 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-800) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--coral-500) 0%, var(--coral-600) 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--coral-600) 0%, #FF3030 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+  color: transparent;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--teal-600);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+.quiz-option:focus {
+  outline: 2px solid var(--coral-500);
+  outline-offset: 2px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1.125rem;
+  }
+  
+  /* Stack quiz buttons on mobile */
+  .quiz-results .flex {
+    flex-direction: column;
+  }
+  
+  /* Adjust product grid */
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Trust signals */
+.trust-signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Humidity badge */
+.humidity-tested {
+  background: linear-gradient(135deg, #22D3EE 0%, #0891B2 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Product availability states */
+.in-stock {
+  color: #10B981;
+}
+
+.out-of-stock {
+  color: var(--coral-500);
+}
+
+.back-soon {
+  color: #F59E0B;
+}
+
+/* Image placeholder styles */
+.img-placeholder {
+  background: linear-gradient(135deg, var(--teal-100) 0%, var(--teal-200) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal-600);
+  font-size: 2rem;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Caribbean flair decorations */
+.caribbean-accent::before {
+  content: '🌴';
+  margin-right: 0.5rem;
+}
+
+.humidity-icon::before {
+  content: '💧';
+  margin-right: 0.25rem;
+}
