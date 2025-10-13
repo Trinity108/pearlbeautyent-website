@@ -39,7 +39,7 @@ app.get('/api/products', (c) => {
         rating: 4.7,
         reviews: 127,
         in_stock: true,
-        image: '/static/images/curl-gel.jpg'
+        image: '/static/images/products/curl-gel-main.webp'
       },
       {
         id: 2,
@@ -57,7 +57,7 @@ app.get('/api/products', (c) => {
         rating: 4.8,
         reviews: 203,
         in_stock: true,
-        image: '/static/images/leave-in.jpg'
+        image: '/static/images/products/leave-in-main.webp'
       },
       {
         id: 3,
@@ -75,7 +75,7 @@ app.get('/api/products', (c) => {
         rating: 4.6,
         reviews: 89,
         in_stock: true,
-        image: '/static/images/moisturizer.jpg'
+        image: '/static/images/products/moisturizer-main.webp'
       },
       {
         id: 4,
@@ -93,7 +93,7 @@ app.get('/api/products', (c) => {
         rating: 4.5,
         reviews: 156,
         in_stock: false, // Example of sold out handling
-        image: '/static/images/shine-spray.jpg'
+        image: '/static/images/products/shine-spray-main.webp'
       }
     ]
   })
