@@ -9,7 +9,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
         <title>{title || 'Island-Proof Curls. Zero Crunch. | Caribbean Players by Pearl Beauty'}</title>
         <meta 
           name="description" 
-          content="Define, moisturize & protect curls in tropical weather. Dermatologist-guided, made in the Caribbean, fulfilled in the USA. Free US shipping $49+." 
+          content="Natural ingredients meet salon results. Caribbean-made curl care that holds through humidity. Made in Trinidad & Tobago. Free US shipping $50+." 
         />
         <meta name="keywords" content="curly hair, humidity proof, Caribbean hair care, curl defining gel, anti-frizz, natural hair products" />
         

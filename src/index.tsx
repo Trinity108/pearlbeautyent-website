@@ -262,19 +262,19 @@ app.get('/product/:id', (c) => {
                 <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <i className="fas fa-shipping-fast text-coral-500"></i>
-                    <span>Free shipping $49+</span>
+                    <span>Free US Shipping $50+</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <i className="fas fa-undo text-coral-500"></i>
-                    <span>30-day returns</span>
+                    <i className="fas fa-leaf text-coral-500"></i>
+                    <span>Natural Ingredients</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <i className="fas fa-shield-alt text-coral-500"></i>
-                    <span>Secure checkout</span>
+                    <span>Secure Checkout</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <i className="fas fa-phone text-coral-500"></i>
-                    <span>Customer support</span>
+                    <i className="fas fa-island-tropical text-coral-500"></i>
+                    <span>Made in Trinidad & Tobago</span>
                   </div>
                 </div>
               </div>
@@ -595,19 +595,15 @@ app.get('/', (c) => {
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-teal-700">
             <div className="flex items-center gap-2">
               <i className="fas fa-shipping-fast text-coral-500"></i>
-              <span>Free US shipping $49+</span>
+              <span>Free US Shipping $50+</span>
             </div>
             <div className="flex items-center gap-2">
-              <i className="fas fa-undo text-coral-500"></i>
-              <span>30-day happiness guarantee</span>
+              <i className="fas fa-leaf text-coral-500"></i>
+              <span>Natural Ingredients, Salon Results</span>
             </div>
             <div className="flex items-center gap-2">
-              <i className="fas fa-user-md text-coral-500"></i>
-              <span>Dermatologist-guided care</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <i className="fas fa-map-marker-alt text-coral-500"></i>
-              <span>Made in the Caribbean, fulfilled in the USA</span>
+              <i className="fas fa-island-tropical text-coral-500"></i>
+              <span>Made in Trinidad & Tobago</span>
             </div>
           </div>
         </div>
