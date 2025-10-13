@@ -6,7 +6,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title || 'Island-Proof Curls. Zero Crunch. | Caribbean Players by Pearl Beauty'}</title>
+        <title>{title || 'Humidity-Proof Curls. Zero Crunch. | Caribbean Players by Pearl Beauty'}</title>
         <meta 
           name="description" 
           content="Natural ingredients meet salon results. Caribbean-made curl care that holds through humidity. Made in Trinidad & Tobago. Free US shipping $50+." 
@@ -14,7 +14,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
         <meta name="keywords" content="curly hair, humidity proof, Caribbean hair care, curl defining gel, anti-frizz, natural hair products" />
         
         {/* Open Graph */}
-        <meta property="og:title" content={title || 'Island-Proof Curls. Zero Crunch. | Caribbean Players'} />
+        <meta property="og:title" content={title || 'Humidity-Proof Curls. Zero Crunch. | Caribbean Players'} />
         <meta property="og:description" content="Caribbean-made curl care tested in real heat and humidity. Define, moisturize & protect curls naturally." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/static/images/hero-curls.jpg" />
