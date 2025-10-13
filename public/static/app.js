@@ -38,8 +38,8 @@ async function loadBestSellers() {
         
         container.innerHTML = topProducts.map(product => `
             <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer">
-                <div class="aspect-square bg-gradient-to-br from-teal-100 to-teal-200 rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-bottle-water text-teal-600 text-3xl"></i>
+                <div class="aspect-square bg-gradient-to-br from-teal-100 to-teal-200 rounded-lg mb-4 overflow-hidden">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fas fa-bottle-water text-teal-600 text-3xl flex items-center justify-center h-full&quot;></i>'">
                 </div>
                 
                 <div class="flex items-center gap-1 mb-2">
