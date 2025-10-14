@@ -655,26 +655,32 @@ app.get('/', (c) => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-teal-100 to-teal-200 p-8 rounded-lg text-center">
-              <div className="w-20 h-20 bg-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <i className="fas fa-camera text-white text-2xl"></i>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-square overflow-hidden">
+                <img src="/static/images/ugc/miami-beach.jpg" alt="Miami Beach humidity test" className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-semibold mb-2">Miami Beach Test</h3>
-              <p className="text-gray-600 text-sm">8 hours, 85% humidity - still defined</p>
+              <div className="p-6 text-center">
+                <h3 className="font-semibold mb-2">Miami Beach Test</h3>
+                <p className="text-gray-600 text-sm">8 hours, 85% humidity - still defined</p>
+              </div>
             </div>
-            <div className="bg-gradient-to-br from-coral-100 to-coral-200 p-8 rounded-lg text-center">
-              <div className="w-20 h-20 bg-coral-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <i className="fas fa-camera text-white text-2xl"></i>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-square overflow-hidden">
+                <img src="/static/images/ugc/houston-summer.jpg" alt="Houston summer heat test" className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-semibold mb-2">Houston Summer</h3>
-              <p className="text-gray-600 text-sm">Type 4A curls - zero crunch after scrunch-out</p>
+              <div className="p-6 text-center">
+                <h3 className="font-semibold mb-2">Houston Summer</h3>
+                <p className="text-gray-600 text-sm">Type 4A curls - zero crunch after scrunch-out</p>
+              </div>
             </div>
-            <div className="bg-gradient-to-br from-teal-100 to-teal-200 p-8 rounded-lg text-center">
-              <div className="w-20 h-20 bg-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <i className="fas fa-camera text-white text-2xl"></i>
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-square overflow-hidden">
+                <img src="/static/images/ugc/nyc-subway.jpg" alt="NYC subway commute test" className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-semibold mb-2">NYC Subway</h3>
-              <p className="text-gray-600 text-sm">Underground to street level - curls intact</p>
+              <div className="p-6 text-center">
+                <h3 className="font-semibold mb-2">NYC Subway</h3>
+                <p className="text-gray-600 text-sm">Underground to street level - curls intact</p>
+              </div>
             </div>
           </div>
           
