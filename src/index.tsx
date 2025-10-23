@@ -658,10 +658,10 @@ app.get('/', (c) => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Real People. Real Island Weather.
+              Tested Where Humidity Never Quits
             </h2>
             <p className="text-lg text-gray-600">
-              See curls stay defined from sunrise to night—no flakes, no heavy grease.
+              Real results from Houston, Miami, and DC—no flakes, no crunch, just defined curls that last.
             </p>
           </div>
           
