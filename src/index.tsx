@@ -570,19 +570,30 @@ app.get('/', (c) => {
   return c.render(
     <div>
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+      <section className="hero relative bg-gradient-to-br from-teal-600 to-teal-800 text-white py-32 px-4 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/static/images/hero-background.jpg" 
+            alt="Beautiful defined curls" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-900/85 via-teal-800/75 to-teal-900/85"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
             Humidity-Proof Curls. <span className="text-coral-400">Zero Crunch.</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-teal-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 text-teal-50 max-w-3xl mx-auto drop-shadow-md">
             Caribbean-made care for every texture—tested in real heat and humidity, loved across the USA.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+            <button className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105">
               Find Your Routine
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-teal-800 px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+            <button className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-teal-800 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105">
               Shop Best-Sellers
             </button>
           </div>
