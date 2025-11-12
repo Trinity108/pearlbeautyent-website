@@ -671,8 +671,18 @@ app.get('/', (c) => {
           
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-square overflow-hidden">
-                <img src="/static/images/ugc/miami-beach.jpg" alt="Miami Beach humidity test" className="w-full h-full object-cover" />
+              <div className="aspect-[9/16] overflow-hidden bg-black">
+                <video 
+                  src="/static/videos/ugc/miami-beach.mp4" 
+                  className="w-full h-full object-cover" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  poster="/static/images/ugc/miami-beach.jpg"
+                >
+                  <source src="/static/videos/ugc/miami-beach.mp4" type="video/mp4" />
+                </video>
               </div>
               <div className="p-6 text-center">
                 <h3 className="font-semibold mb-2">Miami Beach Test</h3>
@@ -680,8 +690,18 @@ app.get('/', (c) => {
               </div>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-square overflow-hidden">
-                <img src="/static/images/ugc/houston-summer.jpg" alt="Houston summer heat test" className="w-full h-full object-cover" />
+              <div className="aspect-[9/16] overflow-hidden bg-black">
+                <video 
+                  src="/static/videos/ugc/houston-summer.mp4" 
+                  className="w-full h-full object-cover" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  poster="/static/images/ugc/houston-summer.jpg"
+                >
+                  <source src="/static/videos/ugc/houston-summer.mp4" type="video/mp4" />
+                </video>
               </div>
               <div className="p-6 text-center">
                 <h3 className="font-semibold mb-2">Houston Summer</h3>
@@ -689,8 +709,18 @@ app.get('/', (c) => {
               </div>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-square overflow-hidden">
-                <img src="/static/images/ugc/nyc-subway.jpg" alt="NYC subway commute test" className="w-full h-full object-cover" />
+              <div className="aspect-[9/16] overflow-hidden bg-black">
+                <video 
+                  src="/static/videos/ugc/nyc-subway.mp4" 
+                  className="w-full h-full object-cover" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  poster="/static/images/ugc/nyc-subway.jpg"
+                >
+                  <source src="/static/videos/ugc/nyc-subway.mp4" type="video/mp4" />
+                </video>
               </div>
               <div className="p-6 text-center">
                 <h3 className="font-semibold mb-2">NYC Subway</h3>
