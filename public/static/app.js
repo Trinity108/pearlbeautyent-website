@@ -214,6 +214,44 @@ function showQuizModal() {
     `;
     
     document.body.insertAdjacentHTML('beforeend', modalHtml);
+    
+    // Initialize quiz navigation
+    initQuizNavigation();
+}
+
+// Quiz state management
+let quizAnswers = {
+    texture: null,
+    concern: null,
+    lifestyle: null
+};
+
+// Initialize quiz button handlers
+function initQuizNavigation() {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('quiz-option') || e.target.closest('.quiz-option')) {
+            const button = e.target.classList.contains('quiz-option') ? e.target : e.target.closest('.quiz-option');
+            const value = button.dataset.value;
+            const content = document.getElementById('quiz-content');
+            
+            if (!content) return;
+            
+            // Determine current step and save answer
+            if (content.querySelector('[data-value="wavy"]')) {
+                // Step 1 - texture
+                quizAnswers.texture = value;
+                content.innerHTML = getQuizStep2();
+            } else if (content.querySelector('[data-value="frizz"]')) {
+                // Step 2 - concern
+                quizAnswers.concern = value;
+                content.innerHTML = getQuizStep3();
+            } else if (content.querySelector('[data-value="humid"]')) {
+                // Step 3 - lifestyle
+                quizAnswers.lifestyle = value;
+                showQuizResults();
+            }
+        }
+    });
 }
 
 // Quiz step 1 - Hair texture
@@ -335,26 +373,67 @@ function getQuizStep3() {
     `;
 }
 
-// Quiz results
-function showQuizResults(texture, concern, lifestyle) {
-    return `
+// Close quiz modal
+function closeQuizModal() {
+    const modal = document.getElementById('quiz-modal');
+    if (modal) {
+        modal.remove();
+    }
+    // Reset quiz answers
+    quizAnswers = { texture: null, concern: null, lifestyle: null };
+}
+
+// Show quiz results
+function showQuizResults() {
+    const content = document.getElementById('quiz-content');
+    if (!content) return;
+    
+    content.innerHTML = `
         <div class="quiz-results text-center">
             <div class="mb-6">
                 <i class="fas fa-check-circle text-teal-600 text-4xl mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Your Island-Proof Routine</h3>
-                <p class="text-gray-600">Personalized for ${texture} hair with ${concern} concerns</p>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Your Humidity-Proof Routine</h3>
+                <p class="text-gray-600">Personalized for ${quizAnswers.texture} hair</p>
             </div>
             
-            <div id="routine-result" class="mb-6">
-                <!-- Will be populated by API call -->
+            <div id="routine-result" class="mb-6 text-left">
+                <div class="space-y-4">
+                    <div class="p-4 bg-teal-50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</span>
+                            <h4 class="font-semibold">Caribbean Players Leave-In Conditioner</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-11">Prep & protect your curls from humidity</p>
+                    </div>
+                    
+                    <div class="p-4 bg-teal-50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</span>
+                            <h4 class="font-semibold">Caribbean Players Curl Defining Gel</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-11">Define & hold without crunch</p>
+                    </div>
+                    
+                    <div class="p-4 bg-teal-50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</span>
+                            <h4 class="font-semibold">Caribbean Players Shine Spray</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-11">Seal & refresh for lasting definition</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-coral-50 rounded-lg text-center">
+                    <p class="text-sm font-medium text-coral-600">💰 Save 15% when you bundle all 3!</p>
+                </div>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-3">
-                <button class="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold transition-colors">
-                    Add Bundle & Save 15%
-                </button>
+                <a href="https://pearlbeautyent.com/collections/bundles" target="_blank" class="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold transition-colors inline-block">
+                    Shop This Routine
+                </a>
                 <button onclick="closeQuizModal()" class="flex-1 border border-gray-300 text-gray-600 hover:bg-gray-50 py-3 rounded-lg font-semibold transition-colors">
-                    Browse Products
+                    Browse All Products
                 </button>
             </div>
         </div>
