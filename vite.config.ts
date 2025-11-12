@@ -10,5 +10,9 @@ export default defineConfig({
       adapter,
       entry: 'src/index.tsx'
     })
-  ]
+  ],
+  publicDir: 'public', // Explicitly tell Vite to copy public/ to dist/
+  build: {
+    outDir: 'dist'
+  }
 })
