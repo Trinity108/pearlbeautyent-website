@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize interactive elements
     initializeQuiz();
+    initQuizNavigation(); // Initialize quiz navigation ONCE on page load
     initializeEmailCapture();
     
     // Smooth scrolling for anchor links
@@ -226,9 +227,6 @@ function showQuizModal() {
     
     document.body.insertAdjacentHTML('beforeend', modalHtml);
     
-    // Initialize quiz navigation
-    initQuizNavigation();
-    
     // Add ESC key listener to close modal
     document.addEventListener('keydown', handleEscapeKey);
 }
@@ -259,8 +257,14 @@ let quizAnswers = {
     location: null  // NEW: track user location for personalized advice
 };
 
-// Initialize quiz button handlers
+// Initialize quiz button handlers (ONLY CALLED ONCE!)
+let quizNavigationInitialized = false;
+
 function initQuizNavigation() {
+    // Prevent multiple listeners - only initialize once
+    if (quizNavigationInitialized) return;
+    quizNavigationInitialized = true;
+    
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('quiz-option') || e.target.closest('.quiz-option')) {
             const button = e.target.classList.contains('quiz-option') ? e.target : e.target.closest('.quiz-option');
