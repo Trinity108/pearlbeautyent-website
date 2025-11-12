@@ -183,9 +183,20 @@ function generateStarRating(rating) {
 
 // Initialize quiz functionality
 function initializeQuiz() {
-    // Add click handlers for quiz buttons
+    // Add click handlers for quiz buttons and links
     document.addEventListener('click', function(e) {
-        if (e.target.textContent === 'Take the Quiz' || e.target.textContent === 'Find Your Routine') {
+        const target = e.target;
+        const text = target.textContent?.trim();
+        
+        // Check if it's a quiz trigger button or link
+        if (text === 'Take the Quiz' || text === 'Find Your Routine') {
+            e.preventDefault(); // Prevent default link behavior
+            showQuizModal();
+        }
+        
+        // Also check for links with href="#quiz"
+        if (target.tagName === 'A' && target.getAttribute('href') === '#quiz') {
+            e.preventDefault();
             showQuizModal();
         }
     });
