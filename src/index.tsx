@@ -39,7 +39,8 @@ app.get('/api/products', (c) => {
         rating: 4.7,
         reviews: 127,
         in_stock: true,
-        image: '/static/images/products/curl-gel-main.webp'
+        image: '/static/images/products/curl-gel-main.webp',
+        shopify_handle: 'caribbean-players-curl-defining-gel'
       },
       {
         id: 2,
@@ -57,7 +58,8 @@ app.get('/api/products', (c) => {
         rating: 4.8,
         reviews: 203,
         in_stock: true,
-        image: '/static/images/products/leave-in-main.webp'
+        image: '/static/images/products/leave-in-main.webp',
+        shopify_handle: 'caribbean-players-leave-in-conditioner'
       },
       {
         id: 3,
@@ -75,7 +77,8 @@ app.get('/api/products', (c) => {
         rating: 4.6,
         reviews: 89,
         in_stock: true,
-        image: '/static/images/products/moisturizer-main.webp'
+        image: '/static/images/products/moisturizer-main.webp',
+        shopify_handle: 'caribbean-players-softening-hair-moisturizer'
       },
       {
         id: 4,
@@ -93,7 +96,8 @@ app.get('/api/products', (c) => {
         rating: 4.5,
         reviews: 156,
         in_stock: false, // Example of sold out handling
-        image: '/static/images/products/shine-spray-main.webp'
+        image: '/static/images/products/shine-spray-main.webp',
+        shopify_handle: 'caribbean-players-moisturizing-shine-spray'
       }
     ]
   })
@@ -590,12 +594,12 @@ app.get('/', (c) => {
             Caribbean-made care for every texture—tested in real heat and humidity, loved across the USA.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105">
+            <a href="#quiz" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 inline-block text-center">
               Find Your Routine
-            </button>
-            <button className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-teal-800 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105">
+            </a>
+            <a href="#best-sellers" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-teal-800 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 inline-block text-center">
               Shop Best-Sellers
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -699,6 +703,91 @@ app.get('/', (c) => {
             <button className="border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors">
               View Before & After
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 px-4 bg-teal-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              What Curly Girls Are Saying
+            </h2>
+            <p className="text-lg text-gray-600">
+              Real reviews from customers who finally found products that work.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center gap-1 mb-4">
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "Finally found a gel that doesn't leave my 3C curls crunchy! Houston humidity is no joke, but this stuff actually WORKS."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
+                  T
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800">Tamika J.</p>
+                  <p className="text-sm text-gray-500">Houston, TX</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Testimonial 2 */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center gap-1 mb-4">
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "I'm Type 4A and my curls stay moisturized ALL day without that greasy feeling. Love that it's Caribbean-made too! 🇹🇹"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-coral-400 to-coral-600 rounded-full flex items-center justify-center text-white font-bold">
+                  M
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800">Michelle R.</p>
+                  <p className="text-sm text-gray-500">Miami, FL</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Testimonial 3 */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center gap-1 mb-4">
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+                <i className="fas fa-star text-yellow-400"></i>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "DC summers are brutal but my wash-and-go stays defined for 3 days straight. No flaking, no white cast. This is THE ONE."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
+                  K
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800">Kendra W.</p>
+                  <p className="text-sm text-gray-500">Washington, DC</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

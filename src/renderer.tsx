@@ -97,13 +97,13 @@ export const renderer = jsxRenderer(({ children, title }) => {
                   Island-tested curl care made in Trinidad & Tobago, loved across the USA.
                 </p>
                 <div className="flex gap-3">
-                  <a href="#" className="text-gray-400 hover:text-coral-400 transition-colors">
+                  <a href="https://instagram.com/pearlbeautyent" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-coral-400 transition-colors" aria-label="Instagram">
                     <i className="fab fa-instagram text-xl"></i>
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-coral-400 transition-colors">
+                  <a href="https://facebook.com/pearlbeautyent" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-coral-400 transition-colors" aria-label="Facebook">
                     <i className="fab fa-facebook text-xl"></i>
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-coral-400 transition-colors">
+                  <a href="https://www.tiktok.com/@pearlbeautyent" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-coral-400 transition-colors" aria-label="TikTok">
                     <i className="fab fa-tiktok text-xl"></i>
                   </a>
                 </div>
@@ -113,11 +113,11 @@ export const renderer = jsxRenderer(({ children, title }) => {
               <div>
                 <h4 className="font-semibold mb-4">Shop</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">All Products</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Curl Defining</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Moisture & Shine</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Starter Kits</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Take the Quiz</a></li>
+                  <li><a href="https://pearlbeautyent.com/collections/all" target="_blank" className="text-gray-300 hover:text-white transition-colors">All Products</a></li>
+                  <li><a href="https://pearlbeautyent.com/collections/curl-care" target="_blank" className="text-gray-300 hover:text-white transition-colors">Curl Defining</a></li>
+                  <li><a href="https://pearlbeautyent.com/collections/moisture" target="_blank" className="text-gray-300 hover:text-white transition-colors">Moisture & Shine</a></li>
+                  <li><a href="https://pearlbeautyent.com/collections/bundles" target="_blank" className="text-gray-300 hover:text-white transition-colors">Starter Kits</a></li>
+                  <li><a href="#quiz" className="text-gray-300 hover:text-white transition-colors">Take the Quiz</a></li>
                 </ul>
               </div>
               

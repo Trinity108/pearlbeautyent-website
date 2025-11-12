@@ -61,9 +61,9 @@ async function loadBestSellers() {
                         <span class="text-sm text-gray-500 ml-1">${product.size}</span>
                     </div>
                     ${product.in_stock ? 
-                        `<button class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                            Add to Cart
-                        </button>` :
+                        `<a href="https://pearlbeautyent.com/products/${product.shopify_handle || product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors inline-block">
+                            Shop Now
+                        </a>` :
                         `<span class="text-coral-500 text-sm font-medium">Back in Stock Soon</span>`
                     }
                 </div>
