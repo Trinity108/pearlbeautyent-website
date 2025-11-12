@@ -13,11 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initQuizNavigation(); // Initialize quiz navigation ONCE on page load
     initializeEmailCapture();
     
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links (exclude #quiz which opens modal)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            // Skip #quiz - it's handled by initializeQuiz()
+            if (href === '#quiz') return;
+            
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth' });
             }
