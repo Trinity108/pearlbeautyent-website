@@ -195,12 +195,12 @@ function initializeQuiz() {
 function showQuizModal() {
     // Create modal HTML
     const modalHtml = `
-        <div id="quiz-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div id="quiz-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onclick="handleModalBackdropClick(event)">
+            <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-2xl font-bold text-gray-800">Find Your Routine</h2>
-                        <button onclick="closeQuizModal()" class="text-gray-400 hover:text-gray-600">
+                        <button onclick="closeQuizModal()" class="text-gray-400 hover:text-gray-600 transition-colors" title="Close quiz">
                             <i class="fas fa-times text-xl"></i>
                         </button>
                     </div>
@@ -217,6 +217,27 @@ function showQuizModal() {
     
     // Initialize quiz navigation
     initQuizNavigation();
+    
+    // Add ESC key listener to close modal
+    document.addEventListener('keydown', handleEscapeKey);
+}
+
+// Handle backdrop click to close modal
+function handleModalBackdropClick(event) {
+    // Only close if clicking the backdrop (not the modal content)
+    if (event.target.id === 'quiz-modal') {
+        closeQuizModal();
+    }
+}
+
+// Handle ESC key to close modal
+function handleEscapeKey(event) {
+    if (event.key === 'Escape' || event.keyCode === 27) {
+        const modal = document.getElementById('quiz-modal');
+        if (modal) {
+            closeQuizModal();
+        }
+    }
 }
 
 // Quiz state management
@@ -440,6 +461,9 @@ function closeQuizModal() {
     }
     // Reset quiz answers
     quizAnswers = { texture: null, concern: null, lifestyle: null, location: null };
+    
+    // Remove ESC key listener
+    document.removeEventListener('keydown', handleEscapeKey);
 }
 
 // OLD showQuizResults REMOVED - Using new smart personalization version below
