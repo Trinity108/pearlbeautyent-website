@@ -210,10 +210,16 @@ function initializeQuiz() {
 
 // Show quiz modal
 function showQuizModal() {
+    // Check if modal already exists
+    const existingModal = document.getElementById('quiz-modal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
     // Create modal HTML
     const modalHtml = `
         <div id="quiz-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onclick="handleModalBackdropClick(event)">
-            <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-2xl font-bold text-gray-800">Find Your Routine</h2>
@@ -305,9 +311,9 @@ function getQuizStep1() {
     return `
         <div class="quiz-step">
             <div class="mb-6">
-                <div class="text-sm text-teal-600 font-medium mb-2">Step 1 of 3</div>
+                <div class="text-sm text-teal-600 font-medium mb-2">Step 1 of 4</div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-teal-600 h-2 rounded-full" style="width: 33%"></div>
+                    <div class="bg-teal-600 h-2 rounded-full" style="width: 25%"></div>
                 </div>
             </div>
             
@@ -343,9 +349,9 @@ function getQuizStep2() {
     return `
         <div class="quiz-step">
             <div class="mb-6">
-                <div class="text-sm text-teal-600 font-medium mb-2">Step 2 of 3</div>
+                <div class="text-sm text-teal-600 font-medium mb-2">Step 2 of 4</div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-teal-600 h-2 rounded-full" style="width: 67%"></div>
+                    <div class="bg-teal-600 h-2 rounded-full" style="width: 50%"></div>
                 </div>
             </div>
             
