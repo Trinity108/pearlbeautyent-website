@@ -245,7 +245,7 @@ function initQuizNavigation() {
                 // Step 2 - concern
                 quizAnswers.concern = value;
                 content.innerHTML = getQuizStep3();
-            } else if (content.querySelector('[data-value="humid"]')) {
+            } else if (content.querySelector('[data-value="outdoors"]')) {
                 // Step 3 - lifestyle
                 quizAnswers.lifestyle = value;
                 showQuizResults();
