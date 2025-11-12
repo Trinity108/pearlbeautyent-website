@@ -223,8 +223,7 @@ function showQuizModal() {
 let quizAnswers = {
     texture: null,
     concern: null,
-    lifestyle: null,
-    location: null  // NEW: track user location for personalized advice
+    lifestyle: null
 };
 
 // Initialize quiz button handlers
@@ -249,10 +248,6 @@ function initQuizNavigation() {
             } else if (content.querySelector('[data-value="outdoors"]')) {
                 // Step 3 - lifestyle
                 quizAnswers.lifestyle = value;
-                content.innerHTML = getQuizStep4();
-            } else if (content.querySelector('[data-value="houston"]') || content.querySelector('[data-value="caribbean"]')) {
-                // Step 4 - location
-                quizAnswers.location = value;
                 showQuizResults();
             }
         }
@@ -340,9 +335,9 @@ function getQuizStep3() {
     return `
         <div class="quiz-step">
             <div class="mb-6">
-                <div class="text-sm text-teal-600 font-medium mb-2">Step 3 of 4</div>
+                <div class="text-sm text-teal-600 font-medium mb-2">Step 3 of 3</div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-teal-600 h-2 rounded-full" style="width: 75%"></div>
+                    <div class="bg-teal-600 h-2 rounded-full" style="width: 100%"></div>
                 </div>
             </div>
             
@@ -368,64 +363,10 @@ function getQuizStep3() {
                     <div class="font-medium">City commute</div>
                     <div class="text-sm text-gray-600">Transit, walking, variable conditions</div>
                 </button>
-            </div>
-        </div>
-    `;
-}
-
-// Quiz step 4 - Location (NEW)
-function getQuizStep4() {
-    return `
-        <div class="quiz-step">
-            <div class="mb-6">
-                <div class="text-sm text-teal-600 font-medium mb-2">Step 4 of 4</div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-teal-600 h-2 rounded-full" style="width: 100%"></div>
-                </div>
-            </div>
-            
-            <h3 class="text-xl font-semibold mb-4">Where do you live?</h3>
-            <p class="text-sm text-gray-600 mb-4">Climate matters! We'll give you tips for your weather.</p>
-            
-            <div class="space-y-3">
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="houston">
-                    <div class="font-medium">🌡️ Houston / Gulf Coast</div>
-                    <div class="text-sm text-gray-600">Hot, humid, 80-90% humidity</div>
-                </button>
                 
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="miami">
-                    <div class="font-medium">🌴 Miami / South Florida</div>
-                    <div class="text-sm text-gray-600">Tropical, year-round humidity</div>
-                </button>
-                
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="atlanta">
-                    <div class="font-medium">🌳 Atlanta / Southeast</div>
-                    <div class="text-sm text-gray-600">Humid summers, mild winters</div>
-                </button>
-                
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="dc">
-                    <div class="font-medium">🏛️ DC / Mid-Atlantic</div>
-                    <div class="text-sm text-gray-600">Humid summers, cold dry winters</div>
-                </button>
-                
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="nyc">
-                    <div class="font-medium">🗽 NYC / Northeast</div>
-                    <div class="text-sm text-gray-600">Humid hot summers, harsh winters</div>
-                </button>
-                
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="la">
-                    <div class="font-medium">☀️ LA / West Coast</div>
-                    <div class="text-sm text-gray-600">Dry heat, low humidity</div>
-                </button>
-                
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="caribbean">
-                    <div class="font-medium">🏝️ Caribbean / Islands</div>
-                    <div class="text-sm text-gray-600">Where it all started!</div>
-                </button>
-                
-                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="other">
-                    <div class="font-medium">📍 Somewhere else</div>
-                    <div class="text-sm text-gray-600">We'll give you general tips</div>
+                <button class="quiz-option w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-teal-300 transition-colors" data-value="high-humidity">
+                    <div class="font-medium">Tropical / high humidity</div>
+                    <div class="text-sm text-gray-600">Miami, Houston, New Orleans, or similar</div>
                 </button>
             </div>
         </div>
@@ -439,12 +380,158 @@ function closeQuizModal() {
         modal.remove();
     }
     // Reset quiz answers
-    quizAnswers = { texture: null, concern: null, lifestyle: null, location: null };
+    quizAnswers = { texture: null, concern: null, lifestyle: null };
 }
 
-// OLD showQuizResults REMOVED - Using new smart personalization version below
+// Show quiz results
+function showQuizResults() {
+    const content = document.getElementById('quiz-content');
+    if (!content) return;
+    
+    content.innerHTML = `
+        <div class="quiz-results text-center">
+            <div class="mb-6">
+                <i class="fas fa-check-circle text-teal-600 text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Your Humidity-Proof Routine</h3>
+                <p class="text-gray-600">Personalized for ${quizAnswers.texture} hair</p>
+            </div>
+            
+            <div id="routine-result" class="mb-6 text-left">
+                <div class="space-y-4">
+                    <div class="p-4 bg-teal-50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">1</span>
+                            <h4 class="font-semibold">Caribbean Players Leave-In Conditioner</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-11">Prep & protect your curls from humidity</p>
+                    </div>
+                    
+                    <div class="p-4 bg-teal-50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">2</span>
+                            <h4 class="font-semibold">Caribbean Players Curl Defining Gel</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-11">Define & hold without crunch</p>
+                    </div>
+                    
+                    <div class="p-4 bg-teal-50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">3</span>
+                            <h4 class="font-semibold">Caribbean Players Shine Spray</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-11">Seal & refresh for lasting definition</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-coral-50 rounded-lg text-center">
+                    <p class="text-sm font-medium text-coral-600">💰 Save 15% when you bundle all 3!</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="https://pearlbeautyent.com/collections/bundles" target="_blank" class="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold transition-colors inline-block">
+                    Shop This Routine
+                </a>
+                <button onclick="closeQuizModal()" class="flex-1 border border-gray-300 text-gray-600 hover:bg-gray-50 py-3 rounded-lg font-semibold transition-colors">
+                    Browse All Products
+                </button>
+            </div>
+        </div>
+    `;
+}
 
-// OLD API-based quiz logic removed - using new client-side smart personalization
+// Handle quiz navigation
+let quizData = {};
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('quiz-option')) {
+        e.preventDefault();
+        const value = e.target.dataset.value;
+        const step = getCurrentQuizStep();
+        
+        // Store answer
+        if (step === 1) {
+            quizData.texture = value;
+            document.getElementById('quiz-content').innerHTML = getQuizStep2();
+        } else if (step === 2) {
+            quizData.concern = value;
+            document.getElementById('quiz-content').innerHTML = getQuizStep3();
+        } else if (step === 3) {
+            quizData.lifestyle = value;
+            showQuizResultsFromAPI();
+        }
+    }
+});
+
+function getCurrentQuizStep() {
+    const stepText = document.querySelector('.quiz-step .text-teal-600')?.textContent;
+    if (stepText?.includes('Step 1')) return 1;
+    if (stepText?.includes('Step 2')) return 2;
+    if (stepText?.includes('Step 3')) return 3;
+    return 1;
+}
+
+async function showQuizResultsFromAPI() {
+    try {
+        const response = await axios.get(`/api/quiz-results?texture=${quizData.texture}&concern=${quizData.concern}&lifestyle=${quizData.lifestyle}`);
+        const result = response.data;
+        
+        document.getElementById('quiz-content').innerHTML = `
+            <div class="quiz-results text-center">
+                <div class="mb-6">
+                    <i class="fas fa-check-circle text-teal-600 text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Your Island-Proof Routine</h3>
+                    <p class="text-gray-600">Personalized for ${result.texture} hair</p>
+                </div>
+                
+                <div class="bg-teal-50 rounded-lg p-4 mb-6 text-left">
+                    <h4 class="font-semibold text-teal-800 mb-3">${result.bundleName}</h4>
+                    <div class="space-y-2">
+                        ${result.routine.map(step => `
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                                    ${step.step}
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-medium text-gray-800">${step.action}</div>
+                                    <div class="text-sm text-gray-600">${step.product}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    ${result.climate_tip ? `
+                        <div class="mt-4 p-3 bg-coral-100 rounded border-l-4 border-coral-500">
+                            <div class="text-sm font-medium text-coral-800">💡 Climate Tip:</div>
+                            <div class="text-sm text-coral-700">${result.climate_tip}</div>
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button class="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                        Add Bundle & Save ${result.savingsPercent}%
+                    </button>
+                    <button onclick="closeQuizModal()" class="flex-1 border border-gray-300 text-gray-600 hover:bg-gray-50 py-3 rounded-lg font-semibold transition-colors">
+                        Browse Products
+                    </button>
+                </div>
+            </div>
+        `;
+        
+    } catch (error) {
+        console.error('Error getting quiz results:', error);
+    }
+}
+
+// Close quiz modal
+window.closeQuizModal = function() {
+    const modal = document.getElementById('quiz-modal');
+    if (modal) {
+        modal.remove();
+    }
+    quizData = {}; // Reset quiz data
+}
 
 // Initialize email capture
 function initializeEmailCapture() {
@@ -714,299 +801,4 @@ function trackEvent(eventName, data) {
     
     // In production, this would send to Google Analytics 4
     // gtag('event', eventName, data);
-}// Smart personalization functions for Pearl Beauty Quiz
-
-// Show quiz results with smart personalization
-function showQuizResults() {
-    const content = document.getElementById('quiz-content');
-    if (!content) return;
-    
-    // Get personalized routine based on answers
-    const routine = getPersonalizedRoutine(quizAnswers);
-    const advice = getLocationAdvice(quizAnswers);
-    const testimonial = getRelevantTestimonial(quizAnswers);
-    
-    content.innerHTML = `
-        <div class="quiz-results text-center">
-            <div class="mb-6">
-                <i class="fas fa-check-circle text-teal-600 text-4xl mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">${routine.title}</h3>
-                <p class="text-gray-600">${routine.subtitle}</p>
-            </div>
-            
-            <div id="routine-result" class="mb-6 text-left">
-                <div class="space-y-3">
-                    ${routine.products.map((product, index) => `
-                        <div class="p-4 bg-white border-2 border-teal-100 rounded-lg hover:border-teal-300 transition-colors">
-                            <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0">
-                                    <span class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full flex items-center justify-center font-bold shadow-sm">${index + 1}</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-gray-800 mb-1">${product.name}</h4>
-                                    <p class="text-sm text-gray-600 mb-2">${product.benefit}</p>
-                                    <div class="flex items-center gap-2 text-xs text-teal-700">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>${product.why}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <!-- Location-specific advice -->
-                <div class="mt-4 p-4 bg-gradient-to-br from-coral-50 to-orange-50 rounded-lg border-l-4 border-coral-500">
-                    <div class="flex items-start gap-3">
-                        <i class="fas fa-lightbulb text-coral-600 text-xl mt-1"></i>
-                        <div>
-                            <div class="text-sm font-bold text-coral-800 mb-1">${advice.title}</div>
-                            <div class="text-sm text-gray-700">${advice.tip}</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Social proof testimonial -->
-                <div class="mt-4 p-4 bg-teal-50 rounded-lg">
-                    <div class="flex items-center gap-1 mb-2">
-                        ${Array(5).fill('<i class="fas fa-star text-yellow-400 text-xs"></i>').join('')}
-                    </div>
-                    <p class="text-sm text-gray-700 italic mb-2">"${testimonial.quote}"</p>
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                            ${testimonial.initial}
-                        </div>
-                        <div>
-                            <p class="text-sm font-semibold text-gray-800">${testimonial.name}</p>
-                            <p class="text-xs text-gray-500">${testimonial.location}</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Savings callout -->
-                <div class="mt-4 p-4 bg-gradient-to-r from-coral-500 to-orange-500 text-white rounded-lg shadow-md">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold mb-1">$${routine.bundlePrice}</div>
-                        <div class="text-sm opacity-90 line-through mb-2">Regular: $${routine.regularPrice}</div>
-                        <div class="flex items-center justify-center gap-2">
-                            <i class="fas fa-tag"></i>
-                            <span class="font-semibold">Save $${(routine.regularPrice - routine.bundlePrice).toFixed(2)} (15% OFF)</span>
-                        </div>
-                        <div class="text-xs mt-2 opacity-90">🚚 FREE shipping on orders $50+</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col sm:flex-row gap-3">
-                <a href="https://pearlbeautyent.com/collections/bundles" target="_blank" class="flex-1 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl hover:scale-105 inline-block">
-                    <i class="fas fa-shopping-cart mr-2"></i>Get This Routine Now
-                </a>
-                <button onclick="closeQuizModal()" class="flex-1 border-2 border-gray-300 text-gray-600 hover:bg-gray-50 py-3 rounded-lg font-semibold transition-colors">
-                    Browse All Products
-                </button>
-            </div>
-        </div>
-    `;
-}
-
-// Smart routine builder based on hair texture + concern + lifestyle
-function getPersonalizedRoutine(answers) {
-    const { texture, concern, lifestyle } = answers;
-    
-    // Base routine structure
-    let products = [];
-    let title = '';
-    let subtitle = '';
-    let regularPrice = 0;
-    let bundlePrice = 0;
-    
-    // Personalize based on texture + concern combination
-    if (texture === 'wavy') {
-        // Wavy hair needs lightweight products
-        if (concern === 'frizz') {
-            title = 'Your Lightweight Frizz-Control Routine';
-            subtitle = 'Designed for wavy hair that needs definition without weight';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Lightweight moisture prep', why: 'Won\'t weigh down your waves' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Flexible hold for soft waves', why: 'Defines without stiffness' },
-                { name: 'Caribbean Players Shine Spray', benefit: 'Adds gloss and fights humidity', why: 'Perfect finishing touch' }
-            ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
-        } else if (concern === 'dryness') {
-            title = 'Your Hydration-Boost Routine';
-            subtitle = 'Moisture for wavy hair without losing volume';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Deep hydration base layer', why: 'Penetrates without heaviness' },
-                { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Seals in moisture', why: 'Softens rough texture' },
-                { name: 'Caribbean Players Shine Spray', benefit: 'Locks in hydration + shine', why: 'Prevents moisture loss' }
-            ];
-            regularPrice = 69.97;
-            bundlePrice = 59.47;
-        } else {
-            title = 'Your Wave-Enhancing Routine';
-            subtitle = 'Definition and hold for beautiful beachy waves';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Prep and protect', why: 'Creates smooth base' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Enhances natural wave pattern', why: 'Lightweight definition' },
-                { name: 'Caribbean Players Shine Spray', benefit: 'Adds healthy gloss', why: 'Finishing perfection' }
-            ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
-        }
-    } else if (texture === 'curly') {
-        // Curly hair (3A-3C) needs balanced moisture + definition
-        if (concern === 'frizz') {
-            title = 'Your Humidity-Proof Curl Routine';
-            subtitle = 'Tested for 3A-3C curls in extreme humidity';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Creates humidity barrier', why: 'Stops frizz before it starts' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Strong hold without crunch', why: 'Locks curls in place all day' },
-                { name: 'Caribbean Players Shine Spray', benefit: 'Seals cuticle + adds gloss', why: 'Final frizz defense' }
-            ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
-        } else if (concern === 'dryness') {
-            title = 'Your Deep Moisture Curl Routine';
-            subtitle = 'Quench thirsty 3A-3C curls';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Intense hydration', why: 'Penetrates curl structure' },
-                { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Rich moisture seal', why: 'Softens + defines together' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Holds moisture in', why: 'Locks in hydration' }
-            ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
-        } else if (concern === 'definition') {
-            title = 'Your Maximum Definition Routine';
-            subtitle = 'Poppin\' curls that last all day';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Smooth curl foundation', why: 'Preps for definition' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Strong curl definition', why: 'Shapes and holds pattern' },
-                { name: 'Caribbean Players Shine Spray', benefit: 'Glossy finish', why: 'Makes curls pop' }
-            ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
-        } else {
-            title = 'Your Shine & Definition Routine';
-            subtitle = 'Healthy-looking 3A-3C curls with gloss';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Moisture prep', why: 'Adds shine foundation' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Definition + hold', why: 'Keeps curls formed' },
-                { name: 'Caribbean Players Shine Spray', benefit: 'High-gloss finish', why: 'Healthy shine without grease' }
-            ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
-        }
-    } else if (texture === 'coily') {
-        // Coily hair (4A-4C) needs maximum moisture
-        if (concern === 'dryness') {
-            title = 'Your Maximum Moisture Routine';
-            subtitle = 'Deep hydration for 4A-4C coils';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Moisture foundation', why: 'Penetrates tight coils' },
-                { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Rich moisture seal', why: 'Softens and hydrates deep' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Defines + locks moisture', why: 'Holds hydration in' }
-            ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
-        } else if (concern === 'definition') {
-            title = 'Your Coil Definition Routine';
-            subtitle = 'Defined, moisturized 4A-4C coils';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Hydrating prep', why: 'Softens before styling' },
-                { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Elongates coils', why: 'Adds slip for definition' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Strong coil definition', why: 'Holds pattern all day' }
-            ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
-        } else {
-            title = 'Your Coil Care Routine';
-            subtitle = 'Soft, defined, moisturized 4A-4C coils';
-            products = [
-                { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Deep moisture base', why: 'Hydrates from within' },
-                { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Softens coarse texture', why: 'Makes styling easier' },
-                { name: 'Caribbean Players Curl Defining Gel', benefit: 'Definition without crunch', why: 'Holds coils beautifully' }
-            ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
-        }
-    } else {
-        // Not sure / default routine
-        title = 'Your Personalized Curl Routine';
-        subtitle = 'A great starting point for any curl type';
-        products = [
-            { name: 'Caribbean Players Leave-In Conditioner', benefit: 'Moisture prep and protection', why: 'Works for all curl types' },
-            { name: 'Caribbean Players Curl Defining Gel', benefit: 'Define and hold', why: 'Flexible for any texture' },
-            { name: 'Caribbean Players Shine Spray', benefit: 'Finishing shine', why: 'Perfect last step' }
-        ];
-        regularPrice = 67.97;
-        bundlePrice = 57.77;
-    }
-    
-    return { products, title, subtitle, regularPrice, bundlePrice };
-}
-
-// Location-based haircare advice
-function getLocationAdvice(answers) {
-    const { location, lifestyle, concern } = answers;
-    
-    const adviceMap = {
-        'houston': {
-            title: '🌡️ Houston Climate Tips',
-            tip: 'With 80-90% humidity year-round, apply products to soaking wet hair. Air dry when possible—diffusing in Houston heat can cause more frizz. Refresh mid-day with shine spray.'
-        },
-        'miami': {
-            title: '🌴 Miami Climate Tips',
-            tip: 'Tropical humidity + salt air = extra moisture needed. Layer products heavier than you think. Protect hair at beach with leave-in conditioner before swimming. Rinse salt water ASAP.'
-        },
-        'atlanta': {
-            title: '🌳 Atlanta Climate Tips',
-            tip: 'Summer humidity rivals the tropics, but winter is drier. Switch to lighter products in winter to avoid buildup. Use humidity-proof gel May-September, lighter cream rest of year.'
-        },
-        'dc': {
-            title: '🏛️ DC Climate Tips',
-            tip: 'Humid summers, brutally dry winters. Summer: full routine as recommended. Winter: skip gel, add extra moisturizer. Indoor heating dries curls fast—refresh with leave-in spray.'
-        },
-        'nyc': {
-            title: '🗽 NYC Climate Tips',
-            tip: 'Humidity swings are extreme. Summer subway steam = frizz city. Use strongest hold gel June-August. Winter wind + heating = dry curls. Add hair oil in cold months.'
-        },
-        'la': {
-            title: '☀️ LA Climate Tips',
-            tip: 'Low humidity means you can use lighter products! Focus on moisture over frizz control. Sun exposure is your enemy—use products with UV protection. Drink more water for hair health.'
-        },
-        'caribbean': {
-            title: '🏝️ Caribbean Climate Tips',
-            tip: 'You know the drill! These products were MADE for island weather. High humidity + heat = needs strong hold. Protect from salt water and sun. Refresh often, especially after beach days.'
-        },
-        'other': {
-            title: '📍 General Climate Tips',
-            tip: 'High humidity areas: use full routine as recommended. Dry climates: focus more on moisturizer, less on gel. Always adjust based on YOUR environment—your hair will tell you what it needs.'
-        }
-    };
-    
-    return adviceMap[location] || adviceMap['other'];
-}
-
-// Get relevant testimonial based on quiz answers
-function getRelevantTestimonial(answers) {
-    const { location, texture, concern } = answers;
-    
-    const testimonials = {
-        'houston': { quote: 'Finally found products that handle Houston humidity! My 3C curls stay defined all day, even in 90% humidity.', name: 'Tamika J.', location: 'Houston, TX', initial: 'T' },
-        'miami': { quote: 'Miami heat used to destroy my curls by noon. Not anymore! This routine is legit.', name: 'Sofia R.', location: 'Miami, FL', initial: 'S' },
-        'atlanta': { quote: 'Atlanta summers are brutal, but my curls stay poppin\' with this routine. No crunch, just definition!', name: 'Jasmine W.', location: 'Atlanta, GA', initial: 'J' },
-        'dc': { quote: 'DC humidity doesn\'t stand a chance! Love that these products work year-round.', name: 'Aisha M.', location: 'Washington, DC', initial: 'A' },
-        'nyc': { quote: 'NYC subway humidity used to wreck my hair. This gel holds through EVERYTHING.', name: 'Brooklyn T.', location: 'Brooklyn, NY', initial: 'B' },
-        'la': { quote: 'Even in dry LA, my curls need moisture. This routine gives me soft, defined curls without the weight.', name: 'Maya L.', location: 'Los Angeles, CA', initial: 'M' },
-        'caribbean': { quote: 'Born and raised in Trinidad. These products KNOW Caribbean weather. Finally, something that works for us!', name: 'Kesia A.', location: 'Port of Spain, Trinidad', initial: 'K' },
-    };
-    
-    // Return location-specific testimonial or default
-    return testimonials[location] || {
-        quote: 'I\'ve tried everything for my curls. This routine finally delivered—no crunch, just beautiful definition!',
-        name: 'Michelle D.',
-        location: 'Verified Customer',
-        initial: 'M'
-    };
 }
