@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initQuizNavigation(); // Initialize quiz navigation ONCE on page load
     initializeEmailCapture();
     
+    // Toggle sections functionality (Before & After, Ingredients)
+    initializeCollapsibleSections();
+    
     // Smooth scrolling for anchor links (exclude #quiz which opens modal)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -47,6 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skip #quiz - it's handled by initializeQuiz()
             if (href === '#quiz') return;
+            
+            // Check if it's a collapsible section link
+            if (href === '#before-after' || href === '#ingredients') {
+                e.preventDefault();
+                toggleSection(href.replace('#', ''));
+                return;
+            }
             
             e.preventDefault();
             const target = document.querySelector(href);
@@ -1086,4 +1096,90 @@ function getRelevantTestimonial(answers) {
         location: 'Verified Customer',
         initial: 'M'
     };
+}
+
+// Initialize collapsible sections
+function initializeCollapsibleSections() {
+    // Hide sections initially
+    const beforeAfterSection = document.getElementById('before-after');
+    const ingredientsSection = document.getElementById('ingredients');
+    
+    if (beforeAfterSection) {
+        beforeAfterSection.style.display = 'none';
+        beforeAfterSection.dataset.collapsed = 'true';
+    }
+    
+    if (ingredientsSection) {
+        ingredientsSection.style.display = 'none';
+        ingredientsSection.dataset.collapsed = 'true';
+    }
+}
+
+// Toggle section visibility with smooth animation
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    
+    const isCollapsed = section.dataset.collapsed === 'true';
+    
+    if (isCollapsed) {
+        // Show section
+        section.style.display = 'block';
+        section.dataset.collapsed = 'false';
+        
+        // Smooth scroll to section
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+        
+        // Update button text
+        updateToggleButtonText(sectionId, false);
+    } else {
+        // Hide section
+        section.style.display = 'none';
+        section.dataset.collapsed = 'true';
+        
+        // Update button text
+        updateToggleButtonText(sectionId, true);
+        
+        // Scroll to the button that triggered this
+        scrollToTriggerButton(sectionId);
+    }
+}
+
+// Update button text based on section state
+function updateToggleButtonText(sectionId, isCollapsed) {
+    const buttons = document.querySelectorAll(`a[href="#${sectionId}"]`);
+    
+    buttons.forEach(button => {
+        if (sectionId === 'before-after') {
+            button.innerHTML = isCollapsed ? 
+                'View Before & After' : 
+                '<i class="fas fa-chevron-up mr-2"></i>Hide Before & After';
+        } else if (sectionId === 'ingredients') {
+            button.innerHTML = isCollapsed ? 
+                'Learn Why It Works' : 
+                '<i class="fas fa-chevron-up mr-2"></i>Hide Ingredients';
+        }
+    });
+}
+
+// Scroll to the button that triggered the section
+function scrollToTriggerButton(sectionId) {
+    // Find the section before the collapsible section
+    let targetElement;
+    
+    if (sectionId === 'before-after') {
+        // Scroll to UGC section (the one with the button)
+        const ugcSection = document.querySelector('section:has(a[href="#before-after"])');
+        if (ugcSection) targetElement = ugcSection;
+    } else if (sectionId === 'ingredients') {
+        // Scroll to ingredient story section
+        const storySection = document.querySelector('section:has(a[href="#ingredients"])');
+        if (storySection) targetElement = storySection;
+    }
+    
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 }
