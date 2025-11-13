@@ -21,7 +21,7 @@ Hi Pearl! 👋
 
 Wanted to share the website progress with you - it's looking really good and I'm excited for you to see it!
 
-🌐 Preview Site: https://3000-ih7ic78glrblqiw3ajqm1-b9b802c4.sandbox.novita.ai
+🌐 Preview Site: https://pearlbeautyent-website.pages.dev
 
 Take a look and let me know your thoughts! You can navigate through:
 ✅ Smart quiz (click "Take the Quiz")

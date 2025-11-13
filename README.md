@@ -6,6 +6,7 @@
 **Features**: Island-proof curl care positioning, humidity-tested products, conversion-focused UX
 
 ## Live URLs
+- **Production (Cloudflare Pages)**: https://pearlbeautyent-website.pages.dev
 - **Development**: https://3000-ih7ic78glrblqiw3ajqm1-b9b802c4.sandbox.novita.ai
 - **Homepage**: Complete with hero, USP bar, products, quiz teaser, UGC section
 - **Product Page**: /product/1 - Full conversion-optimized template
@@ -221,15 +222,15 @@ webapp/
 - Logo integration in header navigation
 - Git version control with GitHub integration
 
-### 🚧 Pending for Production Launch (Critical)
+### 🚧 Pending for Official Launch (Critical - Real Assets Needed)
 - [ ] Real product photography (4 hero shots: Gel, Leave-In, Moisturizer, Spray)
 - [ ] Hero background image (high-res curly hair visual)
 - [ ] Customer before/after photos (4 real transformations to replace placeholders)
 - [ ] UGC video testimonial integration (3 real customer videos)
 - [ ] Email capture form backend (Cloudflare Workers + email service)
 - [ ] Final QA testing (cross-browser, mobile, performance audit)
-- [ ] Deploy to Cloudflare Pages
 - [ ] Google Analytics or Cloudflare Web Analytics setup
+- [ ] Custom domain configuration (point pearlbeautyent.com to Cloudflare Pages)
 
 ### 📋 Business Documentation
 - **PRICING_PROPOSAL.md** - Complete project pricing breakdown and payment structure
@@ -249,8 +250,9 @@ webapp/
 - **Cost**: $0/month (Cloudflare Pages free tier covers this use case)
 
 ## Deployment Status
-- **Platform**: Cloudflare Pages (NOT YET DEPLOYED)
-- **Status**: ⚠️ Ready for deployment - awaiting images and Cloudflare setup
+- **Platform**: Cloudflare Pages ✅ DEPLOYED
+- **Status**: ✅ Live at https://pearlbeautyent-website.pages.dev
+- **Auto-Deploy**: Connected to GitHub main branch (automatic deployments on push)
 - **Tech Stack**: Hono + TypeScript + TailwindCSS + Cloudflare Workers
 - **Performance**: Optimized for < 2.5s load times, mobile-first UX
 
