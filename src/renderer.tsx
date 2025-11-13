@@ -24,8 +24,15 @@ export const renderer = jsxRenderer(({ children, title }) => {
         <meta name="twitter:title" content={title || 'Island-Proof Curls by Caribbean Players'} />
         <meta name="twitter:description" content="Humidity-proof curl care made in the Caribbean, loved across the USA." />
         
-        {/* Favicon */}
+        {/* Favicon - Comprehensive browser and device support */}
         <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/static/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/static/android-chrome-512x512.png" />
+        <link rel="manifest" href="/static/site.webmanifest" />
+        <meta name="theme-color" content="#0D9488" />
         
         {/* Styles */}
         <script src="https://cdn.tailwindcss.com"></script>
