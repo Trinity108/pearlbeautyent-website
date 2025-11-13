@@ -31,9 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Load products on homepage
-    loadBestSellers();
-    loadBundles();
+    // Detect which page we're on and load appropriate content
+    const currentPath = window.location.pathname;
+    
+    if (currentPath === '/products') {
+        // Load all products on products page
+        loadAllProducts();
+    } else {
+        // Load homepage content
+        loadBestSellers();
+        loadBundles();
+    }
     
     // Initialize interactive elements
     initializeQuiz();
@@ -119,6 +127,90 @@ async function loadBestSellers() {
         
     } catch (error) {
         console.error('Error loading products:', error);
+    }
+}
+
+// Load all products for /products page
+async function loadAllProducts() {
+    try {
+        const response = await axios.get('/api/products');
+        const { products } = response.data;
+        
+        const container = document.getElementById('all-products');
+        const countElement = document.getElementById('product-count');
+        
+        if (!container) return;
+        
+        // Update product count
+        if (countElement) {
+            countElement.textContent = `(${products.length})`;
+        }
+        
+        // Show ALL products
+        container.innerHTML = products.map(product => `
+            <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-all cursor-pointer group">
+                <div class="aspect-square bg-gradient-to-br from-teal-100 to-teal-200 rounded-lg mb-4 overflow-hidden">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fas fa-bottle-water text-teal-600 text-3xl flex items-center justify-center h-full&quot;></i>'">
+                </div>
+                
+                <div class="flex items-center gap-1 mb-2">
+                    ${generateStarRating(product.rating)}
+                    <span class="text-sm text-gray-500 ml-2">(${product.reviews})</span>
+                </div>
+                
+                <h3 class="font-semibold text-gray-800 mb-2 text-lg">${product.name}</h3>
+                <p class="text-sm text-gray-600 mb-3 line-clamp-2">${product.description}</p>
+                
+                <div class="mb-3">
+                    <div class="text-xs text-teal-600 font-medium mb-2">
+                        <i class="fas fa-droplet mr-1"></i>
+                        ${product.climate_tested}
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <span class="text-xl font-bold text-gray-800">$${product.price}</span>
+                        <span class="text-sm text-gray-500 ml-1">${product.size}</span>
+                    </div>
+                    ${product.in_stock ? 
+                        `<span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded font-medium">
+                            <i class="fas fa-check-circle mr-1"></i>In Stock
+                        </span>` :
+                        `<span class="text-xs bg-coral-100 text-coral-600 px-2 py-1 rounded font-medium">
+                            <i class="fas fa-clock mr-1"></i>Restocking
+                        </span>`
+                    }
+                </div>
+                
+                <a href="https://pearlbeautyent.com/products/${product.shopify_handle || product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}" 
+                   target="_blank" 
+                   class="block w-full text-center ${product.in_stock ? 'bg-teal-600 hover:bg-teal-700' : 'bg-gray-400 cursor-not-allowed'} text-white px-4 py-3 rounded-lg text-sm font-semibold transition-colors">
+                    ${product.in_stock ? '<i class="fas fa-shopping-cart mr-2"></i>Shop Now' : 'Notify When Available'}
+                </a>
+                
+                <div class="mt-3 pt-3 border-t text-xs text-gray-500">
+                    <div class="font-medium mb-1">Perfect for curl types:</div>
+                    <div class="flex flex-wrap gap-1">
+                        ${product.hair_types.map(type => `
+                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded">${type}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        
+    } catch (error) {
+        console.error('Error loading all products:', error);
+        const container = document.getElementById('all-products');
+        if (container) {
+            container.innerHTML = `
+                <div class="col-span-full text-center py-12">
+                    <i class="fas fa-exclamation-triangle text-coral-500 text-4xl mb-4"></i>
+                    <p class="text-gray-600">Unable to load products. Please try again later.</p>
+                </div>
+            `;
+        }
     }
 }
 

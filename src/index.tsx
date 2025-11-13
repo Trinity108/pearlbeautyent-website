@@ -606,6 +606,151 @@ app.get('/product/:id', (c) => {
     { title: 'Curl Defining Gel – Anti-Humidity Styling Gel | Caribbean Players' }
   )
 })
+// All Products Page
+app.get('/products', (c) => {
+  return c.render(
+    <div>
+      {/* Navigation Header */}
+      <nav className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <a href="/" className="flex items-center">
+              <img 
+                src="/static/images/pearl-logo.webp" 
+                alt="Pearl Beauty Enterprises" 
+                className="h-12 w-auto"
+              />
+            </a>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              <a href="/" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Home</a>
+              <a href="/products" className="text-teal-600 font-semibold border-b-2 border-teal-600">Products</a>
+              <a href="/#quiz" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Quiz</a>
+              <a 
+                href="https://pearlbeautyent.com/collections/all" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+              >
+                Shop Now
+              </a>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button className="md:hidden text-gray-700 hover:text-teal-600" id="mobile-menu-btn">
+              <i className="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Menu (Hidden by default) */}
+        <div className="hidden md:hidden bg-white border-t" id="mobile-menu">
+          <div className="px-4 py-3 space-y-3">
+            <a href="/" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Home</a>
+            <a href="/products" className="block text-teal-600 font-semibold py-2">Products</a>
+            <a href="/#quiz" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Quiz</a>
+            <a 
+              href="https://pearlbeautyent.com/collections/all" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+            >
+              Shop Now
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Breadcrumb */}
+      <nav className="bg-gray-50 py-3 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center text-sm text-gray-600">
+            <a href="/" className="hover:text-teal-600 transition-colors">Home</a>
+            <i className="fas fa-chevron-right mx-2 text-gray-400 text-xs"></i>
+            <span className="text-gray-800 font-medium">All Products</span>
+          </div>
+        </div>
+      </nav>
+
+      {/* Page Header */}
+      <section className="py-12 px-4 bg-gradient-to-br from-teal-50 to-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            Caribbean Players Collection
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+            Complete curl care system designed for tropical humidity. Made in Trinidad & Tobago with natural Caribbean botanicals.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <i className="fas fa-leaf text-teal-600"></i>
+              <span>Natural Ingredients</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fas fa-island-tropical text-teal-600"></i>
+              <span>Island Tested</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fas fa-droplet text-teal-600"></i>
+              <span>Humidity-Proof</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fas fa-heart text-teal-600"></i>
+              <span>All Curl Types</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* All Products Grid */}
+      <section className="py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-gray-800">
+              All Products <span className="text-teal-600" id="product-count">(Loading...)</span>
+            </h2>
+            
+            {/* Filter/Sort Options (Future Enhancement) */}
+            <div className="hidden md:flex items-center gap-4">
+              <select className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-teal-600 focus:border-transparent">
+                <option>All Hair Types</option>
+                <option>Wavy (2A-2C)</option>
+                <option>Curly (3A-3C)</option>
+                <option>Coily (4A-4C)</option>
+              </select>
+            </div>
+          </div>
+          
+          {/* Products will be loaded by JavaScript */}
+          <div id="all-products" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Dynamic content loaded by app.js */}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-teal-600 to-teal-700 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Not Sure Where to Start?
+          </h2>
+          <p className="text-lg md:text-xl mb-8 text-teal-50">
+            Take our 2-minute quiz to find your perfect curl routine
+          </p>
+          <a 
+            href="/#quiz" 
+            className="inline-block bg-white text-teal-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors"
+          >
+            <i className="fas fa-clipboard-list mr-2"></i>
+            Take the Quiz
+          </a>
+        </div>
+      </section>
+    </div>
+  )
+})
 
 // Homepage
 app.get('/', (c) => {
@@ -626,7 +771,7 @@ app.get('/', (c) => {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#best-sellers" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Shop</a>
+              <a href="/products" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Products</a>
               <a href="#quiz" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Quiz</a>
               <a href="#ingredients" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Ingredients</a>
               <a 
@@ -649,7 +794,7 @@ app.get('/', (c) => {
         {/* Mobile Menu (Hidden by default) */}
         <div className="hidden md:hidden bg-white border-t" id="mobile-menu">
           <div className="px-4 py-3 space-y-3">
-            <a href="#best-sellers" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Shop</a>
+            <a href="/products" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Products</a>
             <a href="#quiz" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Quiz</a>
             <a href="#ingredients" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Ingredients</a>
             <a 
