@@ -98,6 +98,44 @@ app.get('/api/products', (c) => {
         in_stock: false, // Example of sold out handling
         image: '/static/images/products/shine-spray-main.webp',
         shopify_handle: 'caribbean-players-moisturizing-shine-spray'
+      },
+      {
+        id: 5,
+        name: 'Caribbean Players Shampoo',
+        price: 8.95,
+        size: '8oz',
+        description: 'Gentle sulfate-free shampoo that cleanses without stripping natural oils or disrupting curl pattern.',
+        benefits: [
+          'Sulfate-free formula protects natural moisture',
+          'Caribbean botanicals nourish scalp and hair',
+          'pH-balanced for all curl types'
+        ],
+        climate_tested: 'Formulated for humid tropical climates',
+        hair_types: ['2A', '2B', '2C', '3A', '3B', '3C', '4A', '4B', '4C'],
+        rating: 4.7,
+        reviews: 142,
+        in_stock: true,
+        image: '/static/images/products/shampoo-main.webp',
+        shopify_handle: 'caribbean-players-shampoo'
+      },
+      {
+        id: 6,
+        name: 'Caribbean Players Conditioner',
+        price: 8.95,
+        size: '8oz',
+        description: 'Rich, moisturizing conditioner that detangles and softens while preparing curls for styling.',
+        benefits: [
+          'Deep conditioning without buildup',
+          'Detangles and adds slip for easy styling',
+          'Strengthens hair with natural proteins'
+        ],
+        climate_tested: 'Locks in moisture in high humidity',
+        hair_types: ['2A', '2B', '2C', '3A', '3B', '3C', '4A', '4B', '4C'],
+        rating: 4.8,
+        reviews: 168,
+        in_stock: true,
+        image: '/static/images/products/conditioner-main.webp',
+        shopify_handle: 'caribbean-players-conditioner'
       }
     ]
   })
