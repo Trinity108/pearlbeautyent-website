@@ -573,6 +573,59 @@ app.get('/product/:id', (c) => {
 app.get('/', (c) => {
   return c.render(
     <div>
+      {/* Navigation Header */}
+      <nav className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <a href="/" className="flex items-center">
+              <img 
+                src="/static/images/pearl-logo.webp" 
+                alt="Pearl Beauty Enterprises" 
+                className="h-12 w-auto"
+              />
+            </a>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#best-sellers" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Shop</a>
+              <a href="#quiz" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Quiz</a>
+              <a href="#ingredients" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Ingredients</a>
+              <a 
+                href="https://pearlbeautyent.com/collections/all" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+              >
+                Shop Now
+              </a>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button className="md:hidden text-gray-700 hover:text-teal-600" id="mobile-menu-btn">
+              <i className="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Menu (Hidden by default) */}
+        <div className="hidden md:hidden bg-white border-t" id="mobile-menu">
+          <div className="px-4 py-3 space-y-3">
+            <a href="#best-sellers" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Shop</a>
+            <a href="#quiz" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Quiz</a>
+            <a href="#ingredients" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Ingredients</a>
+            <a 
+              href="https://pearlbeautyent.com/collections/all" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+            >
+              Shop Now
+            </a>
+          </div>
+        </div>
+      </nav>
+      
       {/* Hero Section */}
       <section className="hero relative bg-gradient-to-br from-teal-600 to-teal-800 text-white py-32 px-4 overflow-hidden">
         {/* Background Image with Overlay */}
