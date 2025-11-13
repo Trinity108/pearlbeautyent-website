@@ -232,10 +232,7 @@ webapp/
 - [ ] Google Analytics or Cloudflare Web Analytics setup
 - [ ] Custom domain configuration (point pearlbeautyent.com to Cloudflare Pages)
 
-### 📋 Business Documentation
-- **PRICING_PROPOSAL.md** - Complete project pricing breakdown and payment structure
-- **WHATSAPP_SITE_PREVIEW.txt** - Initial preview message for client
-- **WHATSAPP_PRICING_PITCH.txt** - Formal pricing pitch message
+
 
 ### 📚 Lion's Personal Workflows
 - **LION-DEPLOY.md** - Step-by-step deployment instructions for YOU
