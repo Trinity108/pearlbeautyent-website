@@ -752,6 +752,497 @@ app.get('/products', (c) => {
   )
 })
 
+// Privacy Policy Page
+app.get('/privacy', (c) => {
+  return c.render(
+    <div>
+      {/* Navigation Header */}
+      <nav className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <a href="/" className="flex items-center">
+              <img 
+                src="/static/images/pearl-logo.webp" 
+                alt="Pearl Beauty Enterprises" 
+                className="h-12 w-auto"
+              />
+            </a>
+            <div className="hidden md:flex items-center gap-8">
+              <a href="/" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Home</a>
+              <a href="/products" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Products</a>
+              <a href="/#quiz" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Quiz</a>
+              <a 
+                href="https://pearlbeautyent.com/collections/all" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+              >
+                Shop Now
+              </a>
+            </div>
+            <button className="md:hidden text-gray-700 hover:text-teal-600" id="mobile-menu-btn">
+              <i className="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div className="hidden md:hidden bg-white border-t" id="mobile-menu">
+          <div className="px-4 py-3 space-y-3">
+            <a href="/" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Home</a>
+            <a href="/products" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Products</a>
+            <a href="/#quiz" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Quiz</a>
+            <a 
+              href="https://pearlbeautyent.com/collections/all" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+            >
+              Shop Now
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Breadcrumb */}
+      <nav className="bg-gray-50 py-3 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center text-sm text-gray-600">
+            <a href="/" className="hover:text-teal-600 transition-colors">Home</a>
+            <i className="fas fa-chevron-right mx-2 text-gray-400 text-xs"></i>
+            <span className="text-gray-800 font-medium">Privacy Policy</span>
+          </div>
+        </div>
+      </nav>
+
+      {/* Privacy Policy Content */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
+          <p className="text-gray-600 mb-8">Last Updated: November 19, 2024</p>
+
+          {/* Introduction */}
+          <div className="mb-10">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Pearl Beauty Enterprises ("we," "us," or "our") operates pearlbeautyent.com and Caribbean Players product line. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, share, and safeguard your personal information.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              By using our website, you consent to the data practices described in this policy. If you do not agree with this policy, please do not use our site.
+            </p>
+          </div>
+
+          {/* Table of Contents */}
+          <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 mb-10">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">Contents</h2>
+            <ol className="space-y-2 text-teal-700">
+              <li><a href="#section-1" className="hover:underline">1. What Personal Data We Collect</a></li>
+              <li><a href="#section-2" className="hover:underline">2. How We Collect Your Data</a></li>
+              <li><a href="#section-3" className="hover:underline">3. How We Use Your Data</a></li>
+              <li><a href="#section-4" className="hover:underline">4. Who We Share Your Data With</a></li>
+              <li><a href="#section-5" className="hover:underline">5. International Data Transfers</a></li>
+              <li><a href="#section-6" className="hover:underline">6. How We Protect Your Data</a></li>
+              <li><a href="#section-7" className="hover:underline">7. Your Privacy Rights</a></li>
+              <li><a href="#section-8" className="hover:underline">8. Cookies and Tracking Technologies</a></li>
+              <li><a href="#section-9" className="hover:underline">9. Children's Privacy</a></li>
+              <li><a href="#section-10" className="hover:underline">10. Changes to This Policy</a></li>
+              <li><a href="#section-11" className="hover:underline">11. Contact Us</a></li>
+            </ol>
+          </div>
+
+          {/* Section 1 */}
+          <div id="section-1" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">1. What Personal Data We Collect</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">We may collect the following types of personal information:</p>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Identity Data</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
+              <li>First name, last name</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Technical Data</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
+              <li>IP address</li>
+              <li>Browser type and version</li>
+              <li>Device information</li>
+              <li>Operating system</li>
+              <li>Time zone setting and location</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Usage Data</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
+              <li>Pages visited on our site</li>
+              <li>Products viewed</li>
+              <li>Quiz responses</li>
+              <li>Time spent on pages</li>
+              <li>Referring website</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Marketing Data</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Email preferences</li>
+              <li>Communication preferences</li>
+              <li>Newsletter subscription status</li>
+            </ul>
+          </div>
+
+          {/* Section 2 */}
+          <div id="section-2" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">2. How We Collect Your Data</h2>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Direct Interactions</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              You provide us data when you:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-4">
+              <li>Take our curl care quiz</li>
+              <li>Subscribe to our newsletter</li>
+              <li>Request marketing materials</li>
+              <li>Contact us through our website</li>
+              <li>Make purchases through our Shopify store</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Automated Technologies</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              As you navigate our website, we automatically collect:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Technical data through cookies and similar technologies</li>
+              <li>Usage data through analytics services (Google Analytics)</li>
+              <li>Device and browser information</li>
+            </ul>
+          </div>
+
+          {/* Section 3 */}
+          <div id="section-3" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">3. How We Use Your Data</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We use your personal data for the following purposes:
+            </p>
+            
+            <div className="space-y-4">
+              <div className="border-l-4 border-teal-600 pl-4">
+                <h3 className="font-semibold text-gray-800 mb-2">To Provide Our Services</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                  <li>Process and fulfill orders through Shopify</li>
+                  <li>Provide personalized product recommendations</li>
+                  <li>Respond to customer inquiries</li>
+                  <li>Deliver quiz results and routine suggestions</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-coral-500 pl-4">
+                <h3 className="font-semibold text-gray-800 mb-2">To Improve Our Website</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                  <li>Analyze site usage and performance</li>
+                  <li>Test new features and improvements</li>
+                  <li>Understand customer preferences</li>
+                  <li>Troubleshoot technical issues</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h3 className="font-semibold text-gray-800 mb-2">For Marketing Purposes</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                  <li>Send promotional emails (with your consent)</li>
+                  <li>Show relevant advertisements</li>
+                  <li>Conduct market research</li>
+                  <li>Measure campaign effectiveness</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-purple-600 pl-4">
+                <h3 className="font-semibold text-gray-800 mb-2">Legal Obligations</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                  <li>Comply with legal requirements</li>
+                  <li>Enforce our terms and conditions</li>
+                  <li>Protect against fraud and abuse</li>
+                  <li>Defend legal claims</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4 */}
+          <div id="section-4" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">4. Who We Share Your Data With</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We may share your personal data with the following categories of recipients:
+            </p>
+            
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Service Providers</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                <li><strong>Shopify:</strong> E-commerce platform for order processing and fulfillment</li>
+                <li><strong>Cloudflare:</strong> Website hosting and security services</li>
+                <li><strong>Google Analytics:</strong> Website analytics and performance tracking</li>
+                <li><strong>Email Service Providers:</strong> Newsletter delivery and email marketing</li>
+                <li><strong>Payment Processors:</strong> Secure payment processing</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Advertising Partners</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                <li>Social media advertising platforms (Facebook, Instagram, TikTok)</li>
+                <li>Google Ads for targeted advertising</li>
+                <li>Analytics and attribution services</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Legal Requirements</h3>
+              <p className="text-gray-700 leading-relaxed">
+                We may disclose your data to law enforcement, regulators, or other parties when required by law or to protect our legal rights.
+              </p>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed mt-4">
+              <strong>We do not sell your personal data to third parties.</strong>
+            </p>
+          </div>
+
+          {/* Section 5 */}
+          <div id="section-5" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">5. International Data Transfers</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Pearl Beauty Enterprises is based in Trinidad & Tobago. Your data may be transferred to and processed in countries outside of your residence, including the United States and European Union.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              When we transfer your data internationally, we ensure appropriate safeguards are in place, such as:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Standard contractual clauses approved by regulatory authorities</li>
+              <li>Privacy Shield certification (where applicable)</li>
+              <li>Data processing agreements with service providers</li>
+              <li>Compliance with GDPR and other privacy regulations</li>
+            </ul>
+          </div>
+
+          {/* Section 6 */}
+          <div id="section-6" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">6. How We Protect Your Data</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We implement appropriate technical and organizational security measures to protect your personal data:
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
+                <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                  <i className="fas fa-shield-alt text-teal-600"></i>
+                  Technical Measures
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• SSL/TLS encryption</li>
+                  <li>• Secure cloud hosting (Cloudflare)</li>
+                  <li>• Regular security audits</li>
+                  <li>• Firewall protection</li>
+                  <li>• Access controls</li>
+                </ul>
+              </div>
+              
+              <div className="bg-coral-50 border border-coral-200 rounded-lg p-4">
+                <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                  <i className="fas fa-users text-coral-500"></i>
+                  Organizational Measures
+                </h3>
+                <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                  <li>• Limited staff access</li>
+                  <li>• Confidentiality agreements</li>
+                  <li>• Staff training on data protection</li>
+                  <li>• Data breach response plan</li>
+                  <li>• Regular policy reviews</li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed">
+              While we strive to protect your data, no internet transmission is 100% secure. We cannot guarantee absolute security but will notify you of any breach as required by law.
+            </p>
+          </div>
+
+          {/* Section 7 */}
+          <div id="section-7" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">7. Your Privacy Rights</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Depending on your location, you may have the following rights regarding your personal data:
+            </p>
+            
+            <div className="space-y-4">
+              <div className="border-l-4 border-teal-600 bg-teal-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Access</h3>
+                <p className="text-sm text-gray-700">Request a copy of the personal data we hold about you</p>
+              </div>
+
+              <div className="border-l-4 border-blue-600 bg-blue-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Rectification</h3>
+                <p className="text-sm text-gray-700">Correct inaccurate or incomplete data</p>
+              </div>
+
+              <div className="border-l-4 border-purple-600 bg-purple-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Erasure</h3>
+                <p className="text-sm text-gray-700">Request deletion of your personal data (subject to legal obligations)</p>
+              </div>
+
+              <div className="border-l-4 border-coral-500 bg-coral-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Restrict Processing</h3>
+                <p className="text-sm text-gray-700">Limit how we use your data</p>
+              </div>
+
+              <div className="border-l-4 border-green-600 bg-green-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Data Portability</h3>
+                <p className="text-sm text-gray-700">Receive your data in a structured, machine-readable format</p>
+              </div>
+
+              <div className="border-l-4 border-yellow-600 bg-yellow-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Object</h3>
+                <p className="text-sm text-gray-700">Object to processing for direct marketing or legitimate interests</p>
+              </div>
+
+              <div className="border-l-4 border-red-600 bg-red-50 pl-4 py-3">
+                <h3 className="font-semibold text-gray-800 mb-1">Right to Withdraw Consent</h3>
+                <p className="text-sm text-gray-700">Withdraw consent where processing is based on consent</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-100 border border-gray-300 rounded-lg p-6 mt-6">
+              <p className="text-gray-800 font-semibold mb-2">To Exercise Your Rights:</p>
+              <p className="text-gray-700 mb-2">Contact us at: <a href="mailto:privacy@pearlbeautyent.com" className="text-teal-600 hover:underline">privacy@pearlbeautyent.com</a></p>
+              <p className="text-sm text-gray-600">We will respond to your request within 30 days. You will not be charged a fee unless your request is manifestly unfounded or excessive.</p>
+            </div>
+          </div>
+
+          {/* Section 8 */}
+          <div id="section-8" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">8. Cookies and Tracking Technologies</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We use cookies and similar tracking technologies to enhance your experience. You can manage your cookie preferences through our cookie banner.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Types of Cookies We Use:</h3>
+            
+            <div className="space-y-3 mb-6">
+              <div className="bg-gray-50 border-l-4 border-teal-600 p-4">
+                <h4 className="font-semibold text-gray-800 mb-1">Strictly Necessary Cookies</h4>
+                <p className="text-sm text-gray-700 mb-2">Essential for website functionality. These cannot be disabled.</p>
+                <p className="text-xs text-gray-600">Examples: Session management, security, load balancing</p>
+              </div>
+
+              <div className="bg-gray-50 border-l-4 border-blue-600 p-4">
+                <h4 className="font-semibold text-gray-800 mb-1">Functional Cookies</h4>
+                <p className="text-sm text-gray-700 mb-2">Remember your preferences and choices.</p>
+                <p className="text-xs text-gray-600">Examples: Language preferences, quiz responses, accessibility settings</p>
+              </div>
+
+              <div className="bg-gray-50 border-l-4 border-purple-600 p-4">
+                <h4 className="font-semibold text-gray-800 mb-1">Performance Cookies</h4>
+                <p className="text-sm text-gray-700 mb-2">Help us understand how visitors use our site.</p>
+                <p className="text-xs text-gray-600">Examples: Google Analytics, page load times, error tracking</p>
+              </div>
+
+              <div className="bg-gray-50 border-l-4 border-coral-500 p-4">
+                <h4 className="font-semibold text-gray-800 mb-1">Targeting Cookies</h4>
+                <p className="text-sm text-gray-700 mb-2">Used for advertising and social media integration.</p>
+                <p className="text-xs text-gray-600">Examples: Facebook Pixel, Google Ads, retargeting pixels</p>
+              </div>
+            </div>
+
+            <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
+              <p className="text-gray-800 font-semibold mb-2">Managing Cookies:</p>
+              <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                <li>• Click "Privacy Settings" in our cookie banner</li>
+                <li>• Adjust your browser settings to block cookies</li>
+                <li>• Use opt-out tools provided by advertising networks</li>
+                <li>• Note: Disabling cookies may affect site functionality</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Section 9 */}
+          <div id="section-9" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">9. Children's Privacy</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Our website is not intended for children under 16 years of age. We do not knowingly collect personal data from children under 16.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              If you are a parent or guardian and believe your child has provided us with personal data, please contact us at <a href="mailto:privacy@pearlbeautyent.com" className="text-teal-600 hover:underline">privacy@pearlbeautyent.com</a> and we will delete that information.
+            </p>
+          </div>
+
+          {/* Section 10 */}
+          <div id="section-10" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">10. Changes to This Policy</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we make changes, we will:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
+              <li>Update the "Last Updated" date at the top of this page</li>
+              <li>Notify you via email if the changes are significant (if you've subscribed)</li>
+              <li>Display a notice on our website for 30 days</li>
+            </ul>
+            <p className="text-gray-700 leading-relaxed">
+              Your continued use of our website after changes are posted constitutes your acceptance of the updated policy.
+            </p>
+          </div>
+
+          {/* Section 11 */}
+          <div id="section-11" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">11. Contact Us</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+            </p>
+            
+            <div className="bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Pearl Beauty Enterprises</h3>
+              
+              <div className="space-y-3 text-gray-700">
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-envelope text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">Email:</p>
+                    <a href="mailto:privacy@pearlbeautyent.com" className="text-teal-600 hover:underline">privacy@pearlbeautyent.com</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-globe text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">Website:</p>
+                    <a href="https://pearlbeautyent.com" target="_blank" className="text-teal-600 hover:underline">www.pearlbeautyent.com</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-map-marker-alt text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">Location:</p>
+                    <p>Trinidad & Tobago</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-teal-300">
+                <p className="text-sm text-gray-600">
+                  <strong>Response Time:</strong> We aim to respond to all privacy requests within 30 days.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Back to Top */}
+          <div className="text-center pt-8 border-t">
+            <a href="#" className="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+              <i className="fas fa-arrow-up mr-2"></i>
+              Back to Top
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>,
+    { title: 'Privacy Policy | Caribbean Players by Pearl Beauty' }
+  )
+})
+
 // Homepage
 app.get('/', (c) => {
   return c.render(
