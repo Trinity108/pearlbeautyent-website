@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Toggle sections functionality (Before & After, Ingredients)
     initializeCollapsibleSections();
     
+    // Initialize cookie consent banner
+    initializeCookieBanner();
+    
     // Smooth scrolling for anchor links (exclude #quiz which opens modal)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -1273,5 +1276,83 @@ function scrollToTriggerButton(sectionId) {
     
     if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+// Cookie Consent Banner Management
+function initializeCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept-btn');
+    const rejectBtn = document.getElementById('cookie-reject-btn');
+    const settingsBtn = document.getElementById('cookie-settings-btn');
+    
+    if (!banner) return;
+    
+    // Check if user has already made a choice
+    const cookieConsent = localStorage.getItem('cookie-consent');
+    
+    if (!cookieConsent) {
+        // Show banner if no consent recorded
+        banner.classList.remove('hidden');
+    }
+    
+    // Accept All button
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+            setCookieConsent('accepted');
+            banner.classList.add('hidden');
+            console.log('✅ Cookies accepted');
+        });
+    }
+    
+    // Reject button
+    if (rejectBtn) {
+        rejectBtn.addEventListener('click', function() {
+            setCookieConsent('rejected');
+            banner.classList.add('hidden');
+            console.log('❌ Cookies rejected');
+        });
+    }
+    
+    // Privacy Settings button (will be expanded later with modal)
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', function() {
+            // For now, just accept (we'll add preference center modal in next step)
+            alert('Cookie Preference Center coming soon! For now, please choose Accept All or Reject.');
+        });
+    }
+}
+
+// Save cookie consent preference
+function setCookieConsent(consent) {
+    localStorage.setItem('cookie-consent', consent);
+    localStorage.setItem('cookie-consent-date', new Date().toISOString());
+    
+    // Store default preferences
+    const preferences = {
+        necessary: true, // Always true
+        functional: consent === 'accepted',
+        targeting: consent === 'accepted',
+        performance: consent === 'accepted'
+    };
+    
+    localStorage.setItem('cookie-preferences', JSON.stringify(preferences));
+}
+
+// Get cookie consent status
+function getCookieConsent() {
+    return localStorage.getItem('cookie-consent');
+}
+
+// Check if specific cookie category is allowed
+function isCookieAllowed(category) {
+    const preferences = localStorage.getItem('cookie-preferences');
+    if (!preferences) return false;
+    
+    try {
+        const prefs = JSON.parse(preferences);
+        return prefs[category] === true;
+    } catch (e) {
+        return false;
     }
 }

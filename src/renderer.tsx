@@ -165,6 +165,39 @@ export const renderer = jsxRenderer(({ children, title }) => {
           </div>
         </footer>
         
+        {/* Cookie Consent Banner */}
+        <div id="cookie-banner" className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white py-4 px-4 shadow-lg z-50 hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex-1">
+                <p className="text-sm text-gray-300">
+                  Some tracking technologies such as cookies are important for the correct functioning of our website and are always on. By clicking "Accept All" you are also directing us to use optional tracking technologies to improve user experience, analyze site usage, and assist in our marketing efforts. To deliver your preference, we share this information with social media, advertising, and analytics partners. By clicking "Privacy Settings" (which lets you personalize your experience), you consent to such sharing. You may change your cookie choices and withdraw or modify your consent in our <a href="/privacy" className="underline hover:text-coral-400">Privacy Policy</a> and accept our <a href="/terms" className="underline hover:text-coral-400">Terms of Use</a> (which contains important waivers).
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
+                <button 
+                  id="cookie-settings-btn"
+                  className="px-6 py-2 border border-gray-600 hover:border-white text-white rounded transition-colors whitespace-nowrap"
+                >
+                  Privacy Settings
+                </button>
+                <button 
+                  id="cookie-reject-btn"
+                  className="px-6 py-2 border border-gray-600 hover:border-white text-white rounded transition-colors whitespace-nowrap"
+                >
+                  Reject
+                </button>
+                <button 
+                  id="cookie-accept-btn"
+                  className="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded font-semibold transition-colors whitespace-nowrap"
+                >
+                  Accept All
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         {/* JavaScript */}
         <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
         <script src="/static/app.js"></script>
