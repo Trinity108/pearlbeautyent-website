@@ -157,8 +157,9 @@ export const renderer = jsxRenderer(({ children, title }) => {
             <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
               <p>&copy; 2024 Pearl Beauty Enterprises. All rights reserved.</p>
               <div className="flex gap-6 mt-4 md:mt-0">
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
+                <button id="footer-cookie-settings" className="hover:text-white transition-colors">Cookie Settings</button>
                 <a href="#" className="hover:text-white transition-colors">Accessibility</a>
               </div>
             </div>

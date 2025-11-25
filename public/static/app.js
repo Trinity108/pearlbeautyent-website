@@ -1321,6 +1321,17 @@ function initializeCookieBanner() {
             alert('Cookie Preference Center coming soon! For now, please choose Accept All or Reject.');
         });
     }
+    
+    // Footer Cookie Settings button - reopens banner
+    const footerCookieBtn = document.getElementById('footer-cookie-settings');
+    if (footerCookieBtn) {
+        footerCookieBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Show the banner again so user can change their choice
+            banner.classList.remove('hidden');
+            console.log('🍪 Cookie settings reopened from footer');
+        });
+    }
 }
 
 // Save cookie consent preference
