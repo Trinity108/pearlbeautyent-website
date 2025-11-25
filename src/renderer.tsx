@@ -120,35 +120,30 @@ export const renderer = jsxRenderer(({ children, title }) => {
               <div>
                 <h4 className="font-semibold mb-4">Shop</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="https://pearlbeautyent.com/collections/all" target="_blank" className="text-gray-300 hover:text-white transition-colors">All Products</a></li>
-                  <li><a href="https://pearlbeautyent.com/collections/curl-care" target="_blank" className="text-gray-300 hover:text-white transition-colors">Curl Defining</a></li>
-                  <li><a href="https://pearlbeautyent.com/collections/moisture" target="_blank" className="text-gray-300 hover:text-white transition-colors">Moisture & Shine</a></li>
-                  <li><a href="https://pearlbeautyent.com/collections/bundles" target="_blank" className="text-gray-300 hover:text-white transition-colors">Starter Kits</a></li>
+                  <li><a href="/products" className="text-gray-300 hover:text-white transition-colors">All Products</a></li>
+                  <li><a href="https://pearlbeautyent.com/collections/all" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Online Store</a></li>
                   <li><a href="#quiz" className="text-gray-300 hover:text-white transition-colors">Take the Quiz</a></li>
                 </ul>
               </div>
               
-              {/* Support */}
+              {/* Legal */}
               <div>
-                <h4 className="font-semibold mb-4">Support</h4>
+                <h4 className="font-semibold mb-4">Legal</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Shipping & Returns</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Size Guide</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Track Order</a></li>
+                  <li><a href="/privacy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                  <li><a href="/terms" className="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+                  <li><button id="footer-cookie-settings-alt" className="text-gray-300 hover:text-white transition-colors text-left">Cookie Settings</button></li>
                 </ul>
               </div>
               
-              {/* Company */}
+              {/* Connect */}
               <div>
-                <h4 className="font-semibold mb-4">Company</h4>
+                <h4 className="font-semibold mb-4">Connect</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Story</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Ingredients</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Wholesale</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Press</a></li>
+                  <li><a href="mailto:info@pearlbeautyent.com" className="text-gray-300 hover:text-white transition-colors">Email Us</a></li>
+                  <li><a href="https://instagram.com/pearlbeautyent" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Instagram</a></li>
+                  <li><a href="https://facebook.com/pearlbeautyent" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Facebook</a></li>
+                  <li><a href="https://www.tiktok.com/@pearlbeautyent" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">TikTok</a></li>
                 </ul>
               </div>
               
@@ -157,10 +152,10 @@ export const renderer = jsxRenderer(({ children, title }) => {
             <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
               <p>&copy; 2024 Pearl Beauty Enterprises. All rights reserved.</p>
               <div className="flex gap-6 mt-4 md:mt-0">
-                <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
-                <button id="footer-cookie-settings" className="hover:text-white transition-colors">Cookie Settings</button>
-                <a href="#" className="hover:text-white transition-colors">Accessibility</a>
+                <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
+                <a href="/terms" className="hover:text-white transition-colors">Terms</a>
+                <button id="footer-cookie-settings" className="hover:text-white transition-colors">Cookies</button>
+                <a href="https://pearlbeautyent.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Shop</a>
               </div>
             </div>
           </div>

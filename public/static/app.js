@@ -1331,6 +1331,16 @@ function initializeCookieBanner() {
         });
     }
     
+    // Alternative footer cookie settings button (in Legal section)
+    const footerCookieBtnAlt = document.getElementById('footer-cookie-settings-alt');
+    if (footerCookieBtnAlt) {
+        footerCookieBtnAlt.addEventListener('click', function(e) {
+            e.preventDefault();
+            openCookieModal();
+            console.log('🍪 Cookie settings opened from footer (alt)');
+        });
+    }
+    
     // Initialize Cookie Preference Center Modal
     initializeCookieModal();
 }
