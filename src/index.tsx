@@ -1243,6 +1243,510 @@ app.get('/privacy', (c) => {
   )
 })
 
+// Terms of Service Page
+app.get('/terms', (c) => {
+  return c.render(
+    <div>
+      {/* Navigation Header */}
+      <nav className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <a href="/" className="flex items-center">
+              <img 
+                src="/static/images/pearl-logo.webp" 
+                alt="Pearl Beauty Enterprises" 
+                className="h-12 w-auto"
+              />
+            </a>
+            <div className="hidden md:flex items-center gap-8">
+              <a href="/" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Home</a>
+              <a href="/products" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Products</a>
+              <a href="/#quiz" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">Quiz</a>
+              <a 
+                href="https://pearlbeautyent.com/collections/all" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+              >
+                Shop Now
+              </a>
+            </div>
+            <button className="md:hidden text-gray-700 hover:text-teal-600" id="mobile-menu-btn">
+              <i className="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div className="hidden md:hidden bg-white border-t" id="mobile-menu">
+          <div className="px-4 py-3 space-y-3">
+            <a href="/" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Home</a>
+            <a href="/products" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Products</a>
+            <a href="/#quiz" className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2">Quiz</a>
+            <a 
+              href="https://pearlbeautyent.com/collections/all" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
+            >
+              Shop Now
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Breadcrumb */}
+      <nav className="bg-gray-50 py-3 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center text-sm text-gray-600">
+            <a href="/" className="hover:text-teal-600 transition-colors">Home</a>
+            <i className="fas fa-chevron-right mx-2 text-gray-400 text-xs"></i>
+            <span className="text-gray-800 font-medium">Terms of Service</span>
+          </div>
+        </div>
+      </nav>
+
+      {/* Terms of Service Content */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-800 mb-6">Terms of Service</h1>
+          <p className="text-gray-600 mb-8">Last Updated: November 19, 2024</p>
+
+          {/* Introduction */}
+          <div className="mb-10">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Welcome to Pearl Beauty Enterprises ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of our website at pearlbeautyent.com and our Caribbean Players product line.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              By accessing or using our website, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our website.
+            </p>
+            <div className="bg-coral-50 border-l-4 border-coral-500 p-4">
+              <p className="text-gray-800 font-semibold mb-2">
+                <i className="fas fa-exclamation-triangle text-coral-500 mr-2"></i>
+                Important: These Terms contain important waivers
+              </p>
+              <p className="text-sm text-gray-700">
+                Please read these Terms carefully. They include limitations of liability, dispute resolution provisions, and a waiver of class action rights.
+              </p>
+            </div>
+          </div>
+
+          {/* Table of Contents */}
+          <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 mb-10">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">Contents</h2>
+            <ol className="space-y-2 text-teal-700">
+              <li><a href="#section-1" className="hover:underline">1. Acceptance of Terms</a></li>
+              <li><a href="#section-2" className="hover:underline">2. Use of Our Website</a></li>
+              <li><a href="#section-3" className="hover:underline">3. Products and Services</a></li>
+              <li><a href="#section-4" className="hover:underline">4. User Accounts</a></li>
+              <li><a href="#section-5" className="hover:underline">5. Intellectual Property</a></li>
+              <li><a href="#section-6" className="hover:underline">6. User Content</a></li>
+              <li><a href="#section-7" className="hover:underline">7. Prohibited Activities</a></li>
+              <li><a href="#section-8" className="hover:underline">8. Disclaimers and Limitations of Liability</a></li>
+              <li><a href="#section-9" className="hover:underline">9. Indemnification</a></li>
+              <li><a href="#section-10" className="hover:underline">10. Dispute Resolution and Arbitration</a></li>
+              <li><a href="#section-11" className="hover:underline">11. Termination</a></li>
+              <li><a href="#section-12" className="hover:underline">12. Changes to Terms</a></li>
+              <li><a href="#section-13" className="hover:underline">13. General Provisions</a></li>
+              <li><a href="#section-14" className="hover:underline">14. Contact Information</a></li>
+            </ol>
+          </div>
+
+          {/* Section 1 */}
+          <div id="section-1" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">1. Acceptance of Terms</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              By accessing or using our website, you acknowledge that you have read, understood, and agree to be bound by these Terms and our <a href="/privacy" className="text-teal-600 hover:underline">Privacy Policy</a>.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              If you are using our website on behalf of a business or organization, you represent and warrant that you have the authority to bind that entity to these Terms.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of the website after changes are posted constitutes acceptance of the modified Terms.
+            </p>
+          </div>
+
+          {/* Section 2 */}
+          <div id="section-2" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">2. Use of Our Website</h2>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Eligibility</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              You must be at least 16 years old to use our website. By using our website, you represent and warrant that you meet this age requirement.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">License to Use</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We grant you a limited, non-exclusive, non-transferable, and revocable license to access and use our website for personal, non-commercial purposes, subject to these Terms.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Restrictions</h3>
+            <p className="text-gray-700 leading-relaxed mb-2">
+              You agree not to:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Use the website for any unlawful purpose</li>
+              <li>Attempt to gain unauthorized access to any part of the website</li>
+              <li>Interfere with or disrupt the website's operation</li>
+              <li>Use automated systems (bots, scrapers) without permission</li>
+              <li>Copy, modify, or distribute website content without authorization</li>
+            </ul>
+          </div>
+
+          {/* Section 3 */}
+          <div id="section-3" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">3. Products and Services</h2>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Product Information</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We strive to provide accurate product descriptions, images, and pricing. However, we do not warrant that product descriptions, colors, or other content on the website is accurate, complete, reliable, current, or error-free.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Pricing and Availability</h3>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+              <ul className="text-gray-700 space-y-2">
+                <li><strong>Prices:</strong> All prices are in USD unless otherwise stated and are subject to change without notice.</li>
+                <li><strong>Availability:</strong> Products are subject to availability. We reserve the right to limit quantities or discontinue products.</li>
+                <li><strong>Errors:</strong> If a product is listed at an incorrect price due to error, we reserve the right to refuse or cancel orders.</li>
+              </ul>
+            </div>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Orders and Fulfillment</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              All orders are processed through our Shopify store at pearlbeautyent.com. By placing an order, you agree to Shopify's terms of service and payment processing terms.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              We reserve the right to refuse or cancel any order for any reason, including suspected fraud, errors in product or pricing information, or limitations on quantities.
+            </p>
+          </div>
+
+          {/* Section 4 */}
+          <div id="section-4" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">4. User Accounts</h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-4">
+              If you create an account on our Shopify store, you are responsible for:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
+              <li>Maintaining the confidentiality of your account credentials</li>
+              <li>All activities that occur under your account</li>
+              <li>Notifying us immediately of any unauthorized access</li>
+              <li>Ensuring your account information is accurate and up-to-date</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed">
+              We reserve the right to suspend or terminate your account if you violate these Terms or engage in fraudulent activity.
+            </p>
+          </div>
+
+          {/* Section 5 */}
+          <div id="section-5" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">5. Intellectual Property</h2>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Content</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              All content on our website, including but not limited to text, graphics, logos, images, videos, software, and design elements (collectively, "Content"), is the property of Pearl Beauty Enterprises or our licensors and is protected by:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
+              <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 text-center">
+                <i className="fas fa-copyright text-teal-600 text-2xl mb-2"></i>
+                <p className="text-sm font-semibold text-gray-800">Copyright Laws</p>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                <i className="fas fa-trademark text-blue-600 text-2xl mb-2"></i>
+                <p className="text-sm font-semibold text-gray-800">Trademark Laws</p>
+              </div>
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 text-center">
+                <i className="fas fa-balance-scale text-purple-600 text-2xl mb-2"></i>
+                <p className="text-sm font-semibold text-gray-800">IP Regulations</p>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Trademarks</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              "Pearl Beauty Enterprises," "Caribbean Players," and our logos are trademarks of Pearl Beauty Enterprises. You may not use these trademarks without our prior written permission.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Restrictions on Use</h3>
+            <p className="text-gray-700 leading-relaxed">
+              You may not reproduce, distribute, modify, create derivative works, publicly display, or exploit any Content without our express written permission.
+            </p>
+          </div>
+
+          {/* Section 6 */}
+          <div id="section-6" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">6. User Content</h2>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Submissions</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              If you submit content to our website (including reviews, photos, quiz responses, or feedback), you grant us a non-exclusive, worldwide, royalty-free, perpetual license to use, reproduce, modify, and display that content.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">User Responsibilities</h3>
+            <p className="text-gray-700 leading-relaxed mb-2">
+              You represent and warrant that any content you submit:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
+              <li>Is accurate and truthful</li>
+              <li>Does not violate any third-party rights</li>
+              <li>Does not contain illegal, harmful, or offensive material</li>
+              <li>Does not infringe intellectual property rights</li>
+              <li>Complies with all applicable laws</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed">
+              We reserve the right to remove any user content that violates these Terms or is otherwise objectionable, without notice.
+            </p>
+          </div>
+
+          {/* Section 7 */}
+          <div id="section-7" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">7. Prohibited Activities</h2>
+            
+            <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <i className="fas fa-ban text-red-500 mr-2"></i>
+                You are prohibited from:
+              </h3>
+              <ul className="text-gray-700 space-y-2">
+                <li>• Using the website for fraudulent purposes</li>
+                <li>• Impersonating any person or entity</li>
+                <li>• Harassing, threatening, or abusing other users</li>
+                <li>• Transmitting viruses, malware, or harmful code</li>
+                <li>• Attempting to hack or compromise website security</li>
+                <li>• Scraping or data mining without permission</li>
+                <li>• Using the website to spam or distribute unsolicited messages</li>
+                <li>• Reverse engineering any part of the website</li>
+                <li>• Violating any applicable laws or regulations</li>
+              </ul>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed">
+              Violation of these prohibitions may result in immediate termination of your access and potential legal action.
+            </p>
+          </div>
+
+          {/* Section 8 */}
+          <div id="section-8" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">8. Disclaimers and Limitations of Liability</h2>
+            
+            <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-6 mb-4">
+              <p className="text-gray-800 font-semibold mb-2 uppercase">Important Legal Notice</p>
+              <p className="text-sm text-gray-700">
+                Please read this section carefully as it limits our liability to you.
+              </p>
+            </div>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Disclaimer of Warranties</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              OUR WEBSITE AND PRODUCTS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
+              <li>Warranties of merchantability or fitness for a particular purpose</li>
+              <li>Warranties that the website will be uninterrupted or error-free</li>
+              <li>Warranties regarding the accuracy or reliability of content</li>
+              <li>Warranties that defects will be corrected</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Limitation of Liability</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, PEARL BEAUTY ENTERPRISES SHALL NOT BE LIABLE FOR:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
+              <li>Indirect, incidental, special, consequential, or punitive damages</li>
+              <li>Loss of profits, revenue, data, or use</li>
+              <li>Business interruption or loss of opportunities</li>
+              <li>Damages arising from your use or inability to use the website</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed">
+              IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU EXCEED THE AMOUNT YOU PAID US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR $100 USD, WHICHEVER IS GREATER.
+            </p>
+          </div>
+
+          {/* Section 9 */}
+          <div id="section-9" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">9. Indemnification</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              You agree to indemnify, defend, and hold harmless Pearl Beauty Enterprises, its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys' fees) arising out of or related to:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Your use of our website</li>
+              <li>Your violation of these Terms</li>
+              <li>Your violation of any rights of another party</li>
+              <li>Your conduct in connection with the website</li>
+            </ul>
+          </div>
+
+          {/* Section 10 */}
+          <div id="section-10" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">10. Dispute Resolution and Arbitration</h2>
+            
+            <div className="bg-coral-50 border-l-4 border-coral-500 p-6 mb-4">
+              <p className="text-gray-800 font-semibold mb-2 uppercase">
+                <i className="fas fa-gavel mr-2"></i>
+                Binding Arbitration and Class Action Waiver
+              </p>
+              <p className="text-sm text-gray-700">
+                This section contains important provisions that affect your legal rights, including a waiver of your right to bring a lawsuit in court or participate in class actions.
+              </p>
+            </div>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Informal Resolution</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Before initiating arbitration, you agree to first contact us at <a href="mailto:support@pearlbeautyent.com" className="text-teal-600 hover:underline">support@pearlbeautyent.com</a> to attempt to resolve the dispute informally.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Binding Arbitration</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              If we cannot resolve a dispute informally, any claim or controversy shall be resolved by binding arbitration in accordance with the rules of the American Arbitration Association. The arbitration shall take place in Trinidad & Tobago or another mutually agreed location.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Class Action Waiver</h3>
+            <p className="text-gray-700 leading-relaxed">
+              YOU AND PEARL BEAUTY ENTERPRISES AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN AN INDIVIDUAL CAPACITY AND NOT AS A CLASS REPRESENTATIVE OR CLASS MEMBER IN ANY CLASS OR REPRESENTATIVE ACTION.
+            </p>
+          </div>
+
+          {/* Section 11 */}
+          <div id="section-11" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">11. Termination</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We reserve the right to suspend or terminate your access to our website at any time, for any reason, without notice or liability.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Upon termination:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Your license to use the website immediately terminates</li>
+              <li>You must cease all use of the website</li>
+              <li>We may delete your account and associated data</li>
+              <li>Provisions intended to survive termination remain in effect</li>
+            </ul>
+          </div>
+
+          {/* Section 12 */}
+          <div id="section-12" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">12. Changes to Terms</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We reserve the right to modify these Terms at any time. When we make changes, we will:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
+              <li>Update the "Last Updated" date at the top of this page</li>
+              <li>Post a notice on our website for 30 days</li>
+              <li>Notify users via email if changes are material (if you've subscribed)</li>
+            </ul>
+            <p className="text-gray-700 leading-relaxed">
+              Your continued use of the website after changes are posted constitutes acceptance of the modified Terms. If you do not agree to the modified Terms, you must stop using the website.
+            </p>
+          </div>
+
+          {/* Section 13 */}
+          <div id="section-13" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">13. General Provisions</h2>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Governing Law</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              These Terms shall be governed by and construed in accordance with the laws of Trinidad & Tobago, without regard to conflict of law principles.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Severability</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Entire Agreement</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              These Terms, together with our Privacy Policy, constitute the entire agreement between you and Pearl Beauty Enterprises regarding the use of our website.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">No Waiver</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Our failure to enforce any provision of these Terms shall not be deemed a waiver of such provision or the right to enforce it.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">Assignment</h3>
+            <p className="text-gray-700 leading-relaxed">
+              You may not assign or transfer these Terms or your rights under them. We may assign these Terms to any successor or affiliate without your consent.
+            </p>
+          </div>
+
+          {/* Section 14 */}
+          <div id="section-14" className="mb-10 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">14. Contact Information</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              If you have questions about these Terms of Service, please contact us:
+            </p>
+            
+            <div className="bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Pearl Beauty Enterprises</h3>
+              
+              <div className="space-y-3 text-gray-700">
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-envelope text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">General Inquiries:</p>
+                    <a href="mailto:support@pearlbeautyent.com" className="text-teal-600 hover:underline">support@pearlbeautyent.com</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-balance-scale text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">Legal Matters:</p>
+                    <a href="mailto:legal@pearlbeautyent.com" className="text-teal-600 hover:underline">legal@pearlbeautyent.com</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-globe text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">Website:</p>
+                    <a href="https://pearlbeautyent.com" target="_blank" className="text-teal-600 hover:underline">www.pearlbeautyent.com</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-map-marker-alt text-teal-600 mt-1"></i>
+                  <div>
+                    <p className="font-semibold">Location:</p>
+                    <p>Trinidad & Tobago</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-teal-300">
+                <p className="text-sm text-gray-600">
+                  <strong>Response Time:</strong> We aim to respond to all inquiries within 2-3 business days.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Agreement Acknowledgment */}
+          <div className="bg-gradient-to-br from-coral-50 to-coral-100 border-2 border-coral-300 rounded-lg p-6 mb-10">
+            <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <i className="fas fa-file-signature text-coral-500 mr-2"></i>
+              Acknowledgment
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              BY USING OUR WEBSITE, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE, UNDERSTAND THEM, AND AGREE TO BE BOUND BY THEM. IF YOU DO NOT AGREE TO THESE TERMS, PLEASE DO NOT USE OUR WEBSITE.
+            </p>
+          </div>
+
+          {/* Back to Top */}
+          <div className="text-center pt-8 border-t">
+            <a href="#" className="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+              <i className="fas fa-arrow-up mr-2"></i>
+              Back to Top
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>,
+    { title: 'Terms of Service | Caribbean Players by Pearl Beauty' }
+  )
+})
+
 // Homepage
 app.get('/', (c) => {
   return c.render(
