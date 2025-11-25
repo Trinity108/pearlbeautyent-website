@@ -199,6 +199,161 @@ export const renderer = jsxRenderer(({ children, title }) => {
           </div>
         </div>
         
+        {/* Cookie Preference Center Modal */}
+        <div id="cookie-modal" className="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-teal-600 to-teal-700 text-white p-6">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold">Cookie Preferences</h2>
+                <button id="cookie-modal-close" className="text-white hover:text-gray-200 transition-colors">
+                  <i className="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <p className="text-teal-100 text-sm mt-2">
+                Choose which cookies you want to allow. You can change these settings at any time.
+              </p>
+            </div>
+            
+            {/* Modal Body - Scrollable */}
+            <div className="overflow-y-auto flex-1 p-6">
+              {/* Strictly Necessary Cookies - Always On */}
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <i className="fas fa-shield-alt text-teal-600"></i>
+                      <h3 className="text-lg font-bold text-gray-800">Strictly Necessary</h3>
+                      <span className="bg-teal-100 text-teal-700 text-xs px-2 py-1 rounded-full font-semibold">Always Active</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">
+                      These cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility.
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      <strong>Examples:</strong> Session cookies, security cookies, load balancing cookies
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <div className="relative inline-block w-14 h-8 cursor-not-allowed opacity-50">
+                      <input type="checkbox" id="cookie-necessary" checked disabled className="sr-only" />
+                      <div className="bg-teal-600 w-14 h-8 rounded-full shadow-inner"></div>
+                      <div className="absolute w-6 h-6 bg-white rounded-full shadow top-1 right-1 transition-transform"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Functional Cookies */}
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <i className="fas fa-cog text-blue-600"></i>
+                      <h3 className="text-lg font-bold text-gray-800">Functional</h3>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">
+                      These cookies enable enhanced functionality and personalization, such as remembering your preferences, language settings, and quiz results.
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      <strong>Examples:</strong> Preference cookies, language settings, quiz responses
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <label className="relative inline-block w-14 h-8 cursor-pointer">
+                      <input type="checkbox" id="cookie-functional" className="sr-only cookie-toggle" />
+                      <div className="toggle-bg bg-gray-300 w-14 h-8 rounded-full shadow-inner transition-colors"></div>
+                      <div className="toggle-dot absolute w-6 h-6 bg-white rounded-full shadow top-1 left-1 transition-transform"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Performance Cookies */}
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <i className="fas fa-chart-line text-purple-600"></i>
+                      <h3 className="text-lg font-bold text-gray-800">Performance & Analytics</h3>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">
+                      These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve the user experience.
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      <strong>Examples:</strong> Google Analytics, page view tracking, heatmaps
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <label className="relative inline-block w-14 h-8 cursor-pointer">
+                      <input type="checkbox" id="cookie-performance" className="sr-only cookie-toggle" />
+                      <div className="toggle-bg bg-gray-300 w-14 h-8 rounded-full shadow-inner transition-colors"></div>
+                      <div className="toggle-dot absolute w-6 h-6 bg-white rounded-full shadow top-1 left-1 transition-transform"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Targeting Cookies */}
+              <div className="mb-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <i className="fas fa-bullseye text-coral-500"></i>
+                      <h3 className="text-lg font-bold text-gray-800">Targeting & Advertising</h3>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">
+                      These cookies are used to deliver ads more relevant to you and your interests. They may also be used to limit the number of times you see an ad and measure the effectiveness of advertising campaigns.
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      <strong>Examples:</strong> Facebook Pixel, Google Ads, retargeting cookies
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <label className="relative inline-block w-14 h-8 cursor-pointer">
+                      <input type="checkbox" id="cookie-targeting" className="sr-only cookie-toggle" />
+                      <div className="toggle-bg bg-gray-300 w-14 h-8 rounded-full shadow-inner transition-colors"></div>
+                      <div className="toggle-dot absolute w-6 h-6 bg-white rounded-full shadow top-1 left-1 transition-transform"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Privacy Policy Link */}
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-6">
+                <p className="text-xs text-gray-600">
+                  <i className="fas fa-info-circle text-teal-600 mr-1"></i>
+                  For more information about how we use cookies and protect your privacy, please read our 
+                  <a href="/privacy" className="text-teal-600 hover:underline font-semibold ml-1">Privacy Policy</a>.
+                </p>
+              </div>
+            </div>
+            
+            {/* Modal Footer */}
+            <div className="bg-gray-50 border-t border-gray-200 p-6">
+              <div className="flex flex-col sm:flex-row gap-3 justify-end">
+                <button 
+                  id="cookie-modal-reject-all"
+                  className="px-6 py-3 border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-100 rounded-lg font-semibold transition-colors"
+                >
+                  Reject All
+                </button>
+                <button 
+                  id="cookie-modal-accept-all"
+                  className="px-6 py-3 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-lg font-semibold transition-colors"
+                >
+                  Accept All
+                </button>
+                <button 
+                  id="cookie-modal-confirm"
+                  className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold transition-colors shadow-md"
+                >
+                  Confirm My Choices
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         {/* JavaScript */}
         <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
         <script src="/static/app.js"></script>

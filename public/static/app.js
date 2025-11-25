@@ -1314,24 +1314,192 @@ function initializeCookieBanner() {
         });
     }
     
-    // Privacy Settings button (will be expanded later with modal)
+    // Privacy Settings button - Opens modal
     if (settingsBtn) {
         settingsBtn.addEventListener('click', function() {
-            // For now, just accept (we'll add preference center modal in next step)
-            alert('Cookie Preference Center coming soon! For now, please choose Accept All or Reject.');
+            openCookieModal();
         });
     }
     
-    // Footer Cookie Settings button - reopens banner
+    // Footer Cookie Settings button - Opens modal directly
     const footerCookieBtn = document.getElementById('footer-cookie-settings');
     if (footerCookieBtn) {
         footerCookieBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // Show the banner again so user can change their choice
-            banner.classList.remove('hidden');
-            console.log('🍪 Cookie settings reopened from footer');
+            openCookieModal();
+            console.log('🍪 Cookie settings opened from footer');
         });
     }
+    
+    // Initialize Cookie Preference Center Modal
+    initializeCookieModal();
+}
+
+// Open Cookie Preference Center Modal
+function openCookieModal() {
+    const modal = document.getElementById('cookie-modal');
+    const banner = document.getElementById('cookie-banner');
+    
+    if (!modal) return;
+    
+    // Hide banner if showing
+    if (banner) {
+        banner.classList.add('hidden');
+    }
+    
+    // Load current preferences and update toggle states
+    loadCookiePreferencesToModal();
+    
+    // Show modal
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+    
+    console.log('🍪 Cookie preference modal opened');
+}
+
+// Close Cookie Preference Center Modal
+function closeCookieModal() {
+    const modal = document.getElementById('cookie-modal');
+    
+    if (!modal) return;
+    
+    // Hide modal
+    modal.classList.add('hidden');
+    modal.classList.remove('show');
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+    
+    console.log('🍪 Cookie preference modal closed');
+}
+
+// Load current preferences into modal toggles
+function loadCookiePreferencesToModal() {
+    const preferencesStr = localStorage.getItem('cookie-preferences');
+    
+    // Default preferences if none exist
+    let preferences = {
+        necessary: true,
+        functional: false,
+        performance: false,
+        targeting: false
+    };
+    
+    // Load saved preferences
+    if (preferencesStr) {
+        try {
+            preferences = JSON.parse(preferencesStr);
+        } catch (e) {
+            console.error('Failed to parse cookie preferences:', e);
+        }
+    }
+    
+    // Update toggle states
+    document.getElementById('cookie-functional').checked = preferences.functional;
+    document.getElementById('cookie-performance').checked = preferences.performance;
+    document.getElementById('cookie-targeting').checked = preferences.targeting;
+    
+    console.log('📋 Loaded preferences into modal:', preferences);
+}
+
+// Save custom cookie preferences from modal
+function saveCustomCookiePreferences() {
+    const preferences = {
+        necessary: true, // Always true
+        functional: document.getElementById('cookie-functional').checked,
+        performance: document.getElementById('cookie-performance').checked,
+        targeting: document.getElementById('cookie-targeting').checked
+    };
+    
+    // Save preferences
+    localStorage.setItem('cookie-preferences', JSON.stringify(preferences));
+    localStorage.setItem('cookie-consent', 'custom');
+    localStorage.setItem('cookie-consent-date', new Date().toISOString());
+    
+    console.log('✅ Custom cookie preferences saved:', preferences);
+    
+    return preferences;
+}
+
+// Initialize Cookie Preference Center Modal
+function initializeCookieModal() {
+    const modal = document.getElementById('cookie-modal');
+    if (!modal) return;
+    
+    // Close button
+    const closeBtn = document.getElementById('cookie-modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeCookieModal);
+    }
+    
+    // Close on background click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeCookieModal();
+        }
+    });
+    
+    // Reject All button
+    const rejectAllBtn = document.getElementById('cookie-modal-reject-all');
+    if (rejectAllBtn) {
+        rejectAllBtn.addEventListener('click', function() {
+            // Uncheck all optional toggles
+            document.getElementById('cookie-functional').checked = false;
+            document.getElementById('cookie-performance').checked = false;
+            document.getElementById('cookie-targeting').checked = false;
+            
+            // Save rejection
+            setCookieConsent('rejected');
+            
+            // Close modal
+            closeCookieModal();
+            
+            console.log('❌ All cookies rejected from modal');
+        });
+    }
+    
+    // Accept All button
+    const acceptAllBtn = document.getElementById('cookie-modal-accept-all');
+    if (acceptAllBtn) {
+        acceptAllBtn.addEventListener('click', function() {
+            // Check all optional toggles
+            document.getElementById('cookie-functional').checked = true;
+            document.getElementById('cookie-performance').checked = true;
+            document.getElementById('cookie-targeting').checked = true;
+            
+            // Save acceptance
+            setCookieConsent('accepted');
+            
+            // Close modal
+            closeCookieModal();
+            
+            console.log('✅ All cookies accepted from modal');
+        });
+    }
+    
+    // Confirm My Choices button
+    const confirmBtn = document.getElementById('cookie-modal-confirm');
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', function() {
+            // Save custom preferences
+            const preferences = saveCustomCookiePreferences();
+            
+            // Close modal
+            closeCookieModal();
+            
+            console.log('🎯 Custom cookie choices confirmed:', preferences);
+        });
+    }
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeCookieModal();
+        }
+    });
 }
 
 // Save cookie consent preference
