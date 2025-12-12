@@ -2335,6 +2335,80 @@ app.get('/', (c) => {
             </p>
           </div>
 
+          {/* Free-From Badges - Quick Win */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-coral-50 via-pink-50 to-coral-50 border-2 border-coral-200 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-gray-800 text-center mb-6">
+                <i className="fas fa-shield-check text-coral-500 mr-2"></i>
+                What's NOT in Caribbean Players
+              </h3>
+              <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                Clean formulas without the harsh chemicals that damage curls, strip moisture, or cause buildup.
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+                {/* Sulfates */}
+                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center">
+                    <i className="fas fa-ban text-red-600 text-2xl"></i>
+                  </div>
+                  <h4 className="font-bold text-gray-800 mb-1 text-sm">No Sulfates</h4>
+                  <p className="text-xs text-gray-600">Won't strip natural oils</p>
+                </div>
+
+                {/* Parabens */}
+                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center">
+                    <i className="fas fa-ban text-orange-600 text-2xl"></i>
+                  </div>
+                  <h4 className="font-bold text-gray-800 mb-1 text-sm">No Parabens</h4>
+                  <p className="text-xs text-gray-600">Gentle preservatives only</p>
+                </div>
+
+                {/* Drying Alcohols */}
+                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center">
+                    <i className="fas fa-ban text-yellow-600 text-2xl"></i>
+                  </div>
+                  <h4 className="font-bold text-gray-800 mb-1 text-sm">No Drying Alcohols</h4>
+                  <p className="text-xs text-gray-600">Keeps curls hydrated</p>
+                </div>
+
+                {/* Silicones */}
+                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center">
+                    <i className="fas fa-ban text-purple-600 text-2xl"></i>
+                  </div>
+                  <h4 className="font-bold text-gray-800 mb-1 text-sm">No Heavy Silicones</h4>
+                  <p className="text-xs text-gray-600">Prevents buildup</p>
+                </div>
+
+                {/* Mineral Oil */}
+                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
+                    <i className="fas fa-ban text-blue-600 text-2xl"></i>
+                  </div>
+                  <h4 className="font-bold text-gray-800 mb-1 text-sm">No Mineral Oil</h4>
+                  <p className="text-xs text-gray-600">Natural oils only</p>
+                </div>
+              </div>
+
+              {/* Bottom CTA */}
+              <div className="mt-8 text-center">
+                <p className="text-sm text-gray-700 mb-4">
+                  <i className="fas fa-leaf text-teal-600 mr-2"></i>
+                  <strong>Safe for:</strong> Color-treated, chemically treated, and natural hair • Curly Girl Method approved
+                </p>
+                <a 
+                  href="#best-sellers" 
+                  className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-sm"
+                >
+                  Shop Clean Curl Care
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* Key Ingredient Deep Dives */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Ingredient 1 */}
