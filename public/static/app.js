@@ -1373,6 +1373,7 @@ function openCookieModal() {
 // Close Cookie Preference Center Modal
 function closeCookieModal() {
     const modal = document.getElementById('cookie-modal');
+    const banner = document.getElementById('cookie-banner');
     
     if (!modal) return;
     
@@ -1383,7 +1384,14 @@ function closeCookieModal() {
     // Restore body scroll
     document.body.style.overflow = '';
     
-    console.log('🍪 Cookie preference modal closed');
+    // Check if user has made a choice - if not, show banner again
+    const cookieConsent = localStorage.getItem('cookie-consent');
+    if (!cookieConsent && banner) {
+        banner.classList.remove('hidden');
+        console.log('🍪 Cookie preference modal closed - banner shown (no consent recorded)');
+    } else {
+        console.log('🍪 Cookie preference modal closed - consent already recorded');
+    }
 }
 
 // Load current preferences into modal toggles
