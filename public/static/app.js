@@ -104,9 +104,19 @@ async function loadBestSellers() {
                 <h3 class="font-semibold text-gray-800 mb-2">${product.name}</h3>
                 <p class="text-sm text-gray-600 mb-3">${product.description}</p>
                 
-                <div class="text-xs text-teal-600 font-medium mb-3">
-                    <i class="fas fa-shield-alt mr-1"></i>
-                    Humidity help: keeps definition without crunch
+                <!-- Product Benefits (Quick Win) -->
+                <div class="mb-3 space-y-1">
+                    ${product.benefits.slice(0, 3).map(benefit => `
+                        <div class="flex items-start gap-2 text-xs text-gray-700">
+                            <i class="fas fa-check-circle text-teal-600 mt-0.5 flex-shrink-0"></i>
+                            <span>${benefit}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="text-xs bg-teal-50 text-teal-700 px-3 py-2 rounded-lg mb-3 font-medium">
+                    <i class="fas fa-droplet mr-1"></i>
+                    ${product.climate_tested}
                 </div>
                 
                 <div class="flex items-center justify-between">
@@ -122,8 +132,8 @@ async function loadBestSellers() {
                     }
                 </div>
                 
-                <div class="mt-3 text-xs text-gray-500">
-                    Perfect for: ${product.hair_types.join(', ')} curls
+                <div class="mt-3 pt-3 border-t text-xs text-gray-600">
+                    <span class="font-semibold text-gray-700">Works for:</span> ${product.hair_types.slice(0, 3).join(', ')} curls
                 </div>
             </div>
         `).join('');
@@ -164,8 +174,22 @@ async function loadAllProducts() {
                 <h3 class="font-semibold text-gray-800 mb-2 text-lg">${product.name}</h3>
                 <p class="text-sm text-gray-600 mb-3 line-clamp-2">${product.description}</p>
                 
+                <!-- Product Benefits (Quick Win) -->
+                <div class="mb-3 bg-gray-50 rounded-lg p-3 space-y-1.5">
+                    <div class="text-xs font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-sparkles text-teal-600 mr-1"></i>
+                        What It Does:
+                    </div>
+                    ${product.benefits.slice(0, 3).map(benefit => `
+                        <div class="flex items-start gap-2 text-xs text-gray-700">
+                            <i class="fas fa-check-circle text-teal-600 mt-0.5 flex-shrink-0"></i>
+                            <span>${benefit}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                
                 <div class="mb-3">
-                    <div class="text-xs text-teal-600 font-medium mb-2">
+                    <div class="text-xs bg-teal-50 text-teal-700 px-3 py-2 rounded-lg font-medium">
                         <i class="fas fa-droplet mr-1"></i>
                         ${product.climate_tested}
                     </div>
@@ -192,11 +216,14 @@ async function loadAllProducts() {
                     ${product.in_stock ? '<i class="fas fa-shopping-cart mr-2"></i>Shop Now' : 'Notify When Available'}
                 </a>
                 
-                <div class="mt-3 pt-3 border-t text-xs text-gray-500">
-                    <div class="font-medium mb-1">Perfect for curl types:</div>
+                <div class="mt-3 pt-3 border-t text-xs text-gray-600">
+                    <div class="font-semibold text-gray-700 mb-2">
+                        <i class="fas fa-user-check mr-1 text-teal-600"></i>
+                        Perfect for:
+                    </div>
                     <div class="flex flex-wrap gap-1">
                         ${product.hair_types.map(type => `
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded">${type}</span>
+                            <span class="bg-teal-50 text-teal-700 px-2 py-1 rounded font-medium">${type}</span>
                         `).join('')}
                     </div>
                 </div>
