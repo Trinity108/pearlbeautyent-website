@@ -1818,6 +1818,22 @@ app.get('/', (c) => {
         
         {/* Content */}
         <div className="max-w-6xl mx-auto text-center relative z-10">
+          {/* Trust Signals Above Headline */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-6 text-sm text-teal-100">
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <i className="fas fa-star text-yellow-400"></i>
+              <span className="font-semibold">4.8★ from 500+ reviews</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <i className="fas fa-island-tropical text-coral-400"></i>
+              <span className="font-semibold">Made in Trinidad & Tobago</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <i className="fas fa-heart text-coral-400"></i>
+              <span className="font-semibold">10,000+ Curls Tamed</span>
+            </div>
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
             Humidity-Proof Curls. <span className="text-coral-400">Zero Crunch.</span>
           </h1>
@@ -1826,11 +1842,39 @@ app.get('/', (c) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#quiz" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 inline-block text-center">
-              Find Your Routine
+              <i className="fas fa-clipboard-list mr-2"></i>
+              Get My Curl Kit
             </a>
             <a href="#best-sellers" className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-teal-800 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 inline-block text-center">
+              <i className="fas fa-fire mr-2"></i>
               Shop Best-Sellers
             </a>
+          </div>
+          
+          {/* Social Proof Below CTAs */}
+          <p className="mt-6 text-teal-100 text-sm drop-shadow-md">
+            <i className="fas fa-users mr-2"></i>
+            Join 10,000+ curl queens defeating humidity
+          </p>
+        </div>
+      </section>
+
+      {/* Trust Banner - Above the Fold */}
+      <section className="bg-gradient-to-r from-teal-600 via-teal-500 to-teal-600 text-white py-2">
+        <div className="max-w-6xl mx-auto px-4">
+          <div id="trust-banner" className="flex justify-center items-center gap-8 text-xs md:text-sm font-medium overflow-hidden">
+            <div className="flex items-center gap-2 whitespace-nowrap">
+              <i className="fas fa-shipping-fast text-coral-300"></i>
+              <span>Free Shipping on Orders $50+</span>
+            </div>
+            <div className="hidden md:flex items-center gap-2 whitespace-nowrap">
+              <i className="fas fa-temperature-high text-coral-300"></i>
+              <span>Humidity-Tested in 85°F Trinidad Heat</span>
+            </div>
+            <div className="flex items-center gap-2 whitespace-nowrap">
+              <i className="fas fa-heart text-coral-300"></i>
+              <span>10,000+ Caribbean Curls Trust Us</span>
+            </div>
           </div>
         </div>
       </section>
@@ -1840,16 +1884,16 @@ app.get('/', (c) => {
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-teal-700">
             <div className="flex items-center gap-2">
-              <i className="fas fa-shipping-fast text-coral-500"></i>
-              <span>Free US Shipping $50+</span>
+              <i className="fas fa-shield-check text-coral-500"></i>
+              <span className="font-semibold">Sulfate-Free & Paraben-Free</span>
             </div>
             <div className="flex items-center gap-2">
               <i className="fas fa-leaf text-coral-500"></i>
-              <span>Natural Ingredients, Salon Results</span>
+              <span className="font-semibold">Natural Caribbean Botanicals</span>
             </div>
             <div className="flex items-center gap-2">
-              <i className="fas fa-island-tropical text-coral-500"></i>
-              <span>Made in Trinidad & Tobago</span>
+              <i className="fas fa-flask text-coral-500"></i>
+              <span className="font-semibold">Salon-Quality Results</span>
             </div>
           </div>
         </div>
