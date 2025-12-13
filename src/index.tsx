@@ -1917,18 +1917,48 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Quiz Teaser */}
-      <section className="py-16 px-4 bg-teal-50">
+      {/* Quiz Teaser - Updated with Current Pricing */}
+      <section className="py-16 px-4 bg-gradient-to-br from-teal-50 to-teal-100">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-4">
+            <span className="inline-block bg-coral-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+              🎁 Bundle & Save 15%
+            </span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Find Your Perfect Routine in 2 Minutes
+            Not Sure Where to Start? Take Our 2-Minute Quiz
           </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Answer 4 quick questions about your hair and location. Get a personalized routine with climate-specific tips.
+          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+            Answer 4 quick questions about your hair texture, concern, lifestyle, and location. Get a personalized 3-product routine with climate-specific tips.
           </p>
-          <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+          
+          {/* Quiz Benefits */}
+          <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-2xl mb-2">💰</div>
+              <div className="font-semibold text-gray-800 text-sm">Bundle Pricing</div>
+              <div className="text-xs text-gray-600">$22-25 (Save $4+)</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-2xl mb-2">🌴</div>
+              <div className="font-semibold text-gray-800 text-sm">Climate Matched</div>
+              <div className="text-xs text-gray-600">Trinidad-tested formulas</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-2xl mb-2">✨</div>
+              <div className="font-semibold text-gray-800 text-sm">3 Products</div>
+              <div className="text-xs text-gray-600">Complete curl system</div>
+            </div>
+          </div>
+          
+          <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105">
+            <i className="fas fa-clipboard-list mr-2"></i>
             Take the Quiz
           </button>
+          
+          <p className="text-xs text-gray-500 mt-4">
+            Takes 60 seconds • Get instant results
+          </p>
         </div>
       </section>
 

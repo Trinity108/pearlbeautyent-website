@@ -1040,8 +1040,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Flexible hold for soft waves', why: 'Defines without stiffness' },
                 { name: 'Caribbean Players Shine Spray', benefit: 'Adds gloss and fights humidity', why: 'Perfect finishing touch' }
             ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
+            regularPrice = 28.85;
+            bundlePrice = 24.52;
         } else if (concern === 'dryness') {
             title = 'Your Hydration-Boost Routine';
             subtitle = 'Moisture for wavy hair without losing volume';
@@ -1050,8 +1050,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Seals in moisture', why: 'Softens rough texture' },
                 { name: 'Caribbean Players Shine Spray', benefit: 'Locks in hydration + shine', why: 'Prevents moisture loss' }
             ];
-            regularPrice = 69.97;
-            bundlePrice = 59.47;
+            regularPrice = 28.85;
+            bundlePrice = 24.52;
         } else {
             title = 'Your Wave-Enhancing Routine';
             subtitle = 'Definition and hold for beautiful beachy waves';
@@ -1060,8 +1060,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Enhances natural wave pattern', why: 'Lightweight definition' },
                 { name: 'Caribbean Players Shine Spray', benefit: 'Adds healthy gloss', why: 'Finishing perfection' }
             ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
+            regularPrice = 28.85;
+            bundlePrice = 24.52;
         }
     } else if (texture === 'curly') {
         // Curly hair (3A-3C) needs balanced moisture + definition
@@ -1073,8 +1073,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Strong hold without crunch', why: 'Locks curls in place all day' },
                 { name: 'Caribbean Players Shine Spray', benefit: 'Seals cuticle + adds gloss', why: 'Final frizz defense' }
             ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
+            regularPrice = 28.85;
+            bundlePrice = 24.52;
         } else if (concern === 'dryness') {
             title = 'Your Deep Moisture Curl Routine';
             subtitle = 'Quench thirsty 3A-3C curls';
@@ -1083,8 +1083,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Rich moisture seal', why: 'Softens + defines together' },
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Holds moisture in', why: 'Locks in hydration' }
             ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
+            regularPrice = 26.85;
+            bundlePrice = 22.82;
         } else if (concern === 'definition') {
             title = 'Your Maximum Definition Routine';
             subtitle = 'Poppin\' curls that last all day';
@@ -1093,8 +1093,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Strong curl definition', why: 'Shapes and holds pattern' },
                 { name: 'Caribbean Players Shine Spray', benefit: 'Glossy finish', why: 'Makes curls pop' }
             ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
+            regularPrice = 28.85;
+            bundlePrice = 24.52;
         } else {
             title = 'Your Shine & Definition Routine';
             subtitle = 'Healthy-looking 3A-3C curls with gloss';
@@ -1103,8 +1103,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Definition + hold', why: 'Keeps curls formed' },
                 { name: 'Caribbean Players Shine Spray', benefit: 'High-gloss finish', why: 'Healthy shine without grease' }
             ];
-            regularPrice = 67.97;
-            bundlePrice = 57.77;
+            regularPrice = 28.85;
+            bundlePrice = 24.52;
         }
     } else if (texture === 'coily') {
         // Coily hair (4A-4C) needs maximum moisture
@@ -1116,8 +1116,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Rich moisture seal', why: 'Softens and hydrates deep' },
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Defines + locks moisture', why: 'Holds hydration in' }
             ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
+            regularPrice = 26.85;
+            bundlePrice = 22.82;
         } else if (concern === 'definition') {
             title = 'Your Coil Definition Routine';
             subtitle = 'Defined, moisturized 4A-4C coils';
@@ -1126,8 +1126,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Elongates coils', why: 'Adds slip for definition' },
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Strong coil definition', why: 'Holds pattern all day' }
             ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
+            regularPrice = 26.85;
+            bundlePrice = 22.82;
         } else {
             title = 'Your Coil Care Routine';
             subtitle = 'Soft, defined, moisturized 4A-4C coils';
@@ -1136,8 +1136,8 @@ function getPersonalizedRoutine(answers) {
                 { name: 'Caribbean Players Softening Hair Moisturizer', benefit: 'Softens coarse texture', why: 'Makes styling easier' },
                 { name: 'Caribbean Players Curl Defining Gel', benefit: 'Definition without crunch', why: 'Holds coils beautifully' }
             ];
-            regularPrice = 74.97;
-            bundlePrice = 63.72;
+            regularPrice = 26.85;
+            bundlePrice = 22.82;
         }
     } else {
         // Not sure / default routine
