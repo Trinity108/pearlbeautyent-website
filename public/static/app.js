@@ -251,8 +251,8 @@ function loadBundles() {
             name: 'Frizz-Control Trio',
             description: 'Beat halo-frizz and keep glossy definition in sticky weather.',
             products: ['Leave-In Conditioner', 'Curl Defining Gel', 'Moisturizing Shine Spray'],
-            originalPrice: 67.97,
-            salePrice: 57.77,
+            originalPrice: 28.85,
+            salePrice: 24.52,
             savings: 15,
             ideal_for: 'High humidity, outdoor lifestyle'
         },
@@ -260,8 +260,8 @@ function loadBundles() {
             name: 'Hydration Wash-Day Kit', 
             description: 'Reset, rehydrate, and soften so curls start smooth and stay smooth.',
             products: ['Shampoo', 'Conditioner', 'Softening Hair Moisturizer'],
-            originalPrice: 74.97,
-            salePrice: 63.72,
+            originalPrice: 26.85,
+            salePrice: 22.82,
             savings: 15,
             ideal_for: 'Dry, coarse textures'
         },
@@ -269,8 +269,8 @@ function loadBundles() {
             name: 'Define & Shine Set',
             description: 'Touchably defined curls with flexible hold and healthy bounce.',
             products: ['Leave-In Conditioner', 'Curl Defining Gel', 'Conditioner'],
-            originalPrice: 72.97,
-            salePrice: 62.02,
+            originalPrice: 28.85,
+            salePrice: 24.52,
             savings: 15,
             ideal_for: 'All curl types, daily styling'
         }
