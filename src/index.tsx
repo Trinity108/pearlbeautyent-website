@@ -26,7 +26,7 @@ app.get('/api/products', (c) => {
       {
         id: 1,
         name: 'Caribbean Players Curl Defining Gel',
-        price: 24.99,
+        price: 8.95,
         size: '8oz',
         description: 'Lightweight, clear gel that defines curls and locks shape—without crunch or flakes.',
         benefits: [
@@ -45,7 +45,7 @@ app.get('/api/products', (c) => {
       {
         id: 2,
         name: 'Caribbean Players Leave-In Conditioner',
-        price: 22.99,
+        price: 10.95,
         size: '8oz',
         description: 'Moisture-locking conditioner that preps curls for humidity while adding slip and protection.',
         benefits: [
@@ -64,7 +64,7 @@ app.get('/api/products', (c) => {
       {
         id: 3,
         name: 'Caribbean Players Softening Hair Moisturizer',
-        price: 26.99,
+        price: 8.95,
         size: '8oz', 
         description: 'Rich moisturizer that softens coarse textures while maintaining curl pattern integrity.',
         benefits: [
@@ -83,7 +83,7 @@ app.get('/api/products', (c) => {
       {
         id: 4,
         name: 'Caribbean Players Moisturizing Shine Spray',
-        price: 19.99,
+        price: 8.95,
         size: '6oz',
         description: 'Lightweight finishing spray that adds brilliant shine without grease or buildup.',
         benefits: [
