@@ -50,7 +50,7 @@ app.get('/api/products', (c) => {
         description: 'Moisture-locking conditioner that preps curls for humidity while adding slip and protection.',
         benefits: [
           'Deep moisture without heaviness',
-          'Heat protection up to 400°F',
+          'Protects against heat styling damage',
           'Detangles and adds slip for easy styling'
         ],
         climate_tested: 'Island-tested for tropical climates',
